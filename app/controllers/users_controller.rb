@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :logged_in?, only: [:edit, :destroy]
   def index
     @user = User.new
   end
@@ -28,10 +28,11 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       login(@user)
-      redirect to @user
+      redirect_to @user
     else
       render :index
     end
+
   end
 
 
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
 
   def user_params
 
-    params.require(:user).permit(:username, :email,:password_digest, :current_city)
+    params.require(:user).permit(:username, :email,:password, :current_city)
 
   end
 end
