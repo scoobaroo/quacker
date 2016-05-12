@@ -14,8 +14,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by_id(params[:id])
-    @user.update_attributes(user_params)
-    redirect_to @user
+    if current_user.id == @user.id
+      @user.update_attributes(user_params)
+      redirect_to @user
+    else
+      flash[:notice] = "What do you think you are doing? Do you think this is a game?"
+      redirect_to user_path
+    end
   end
 
   def destroy
