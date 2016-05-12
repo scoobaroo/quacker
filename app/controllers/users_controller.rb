@@ -4,6 +4,25 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find_by_id(params[:id])
+  end
+
+  def edit
+    @user = User.find_by_id(params[:id])
+  end
+
+  def update
+    @user = User.find_by_id(params[:id])
+    @user.update_attributes(user_params)
+    redirect_to @user
+  end
+
+  def destroy
+    @user = User.find_by_id(params[:id])
+    @user.destroy
+  end
+
   def create
     @user = User.create(user_params)
     if @user.save
@@ -19,7 +38,7 @@ class UsersController < ApplicationController
 
   def user_params
 
-    params.require(:user).permit(:username, :email,:password, :current_city)
+    params.require(:user).permit(:username, :email,:password_digest, :current_city)
 
   end
 end
