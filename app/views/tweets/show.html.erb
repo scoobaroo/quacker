@@ -1,0 +1,8 @@
+<h1>Show Tweet</h1>
+<%= @tweet.title %>
+<%= @tweet.body %>
+<%= @tweet.longitude %>
+<%= @tweet.latitude %>
+<%= link_to "Edit Tweet", edit_tweet_path(@tweet) %>
+<%= link_to "Tweets Index", tweets_path %>
+<%= link_to "Delete Tweet", destroy_tweet_path(@tweet), :method => :delete %>
