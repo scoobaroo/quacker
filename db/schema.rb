@@ -25,12 +25,6 @@ ActiveRecord::Schema.define(version: 20160512220614) do
 
   add_index "comments", ["tweet_id"], name: "index_comments_on_tweet_id", using: :btree
 
-  create_table "replies", force: :cascade do |t|
-    t.string   "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tweets", force: :cascade do |t|
     t.string   "title"
     t.string   "body"
@@ -38,11 +32,7 @@ ActiveRecord::Schema.define(version: 20160512220614) do
     t.datetime "updated_at", null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "comment_id"
   end
 
-  add_index "tweets", ["comment_id"], name: "index_tweets_on_comment_id", using: :btree
-
   add_foreign_key "comments", "tweets"
-  add_foreign_key "tweets", "comments"
 end
