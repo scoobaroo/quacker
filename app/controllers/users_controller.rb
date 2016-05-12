@@ -7,7 +7,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
+<<<<<<< Updated upstream
     render :show
+=======
+    if @user == nil
+      redirect_to root_path
+      flash[:notice] = "user not found"
+    end
+>>>>>>> Stashed changes
   end
 
   def edit

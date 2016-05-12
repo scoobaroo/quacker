@@ -38,6 +38,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
+group :development do
+  gem "rails-erd"
+end
+group :development do
+  gem "better_errors"
+end
+gem "binding_of_caller"
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
