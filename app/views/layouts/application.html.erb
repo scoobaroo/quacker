@@ -26,11 +26,12 @@
   <div class="top-bar-right">
   <ul class="menu">
     <% if !current_user %>
-  <li><%=link_to "Create a profile", users_path%></li>
+      <li><%=link_to "Sign in", login_path%></li>
     <% end %>
-  <li><%=link_to "user profile", user_path(current_user) %></li>
-  <li><a href="#">Three</a></li>
-  <li><a href="#">Four</a></li>
+    <% if current_user %>
+      <li><%=link_to "user profile", user_path(current_user) %></li>
+      <li><%=link_to "Logout",logout_path(current_user)%></li>
+    <% end %>
   </ul>
   </div>
   </div>
@@ -49,16 +50,10 @@
   <h4>Categories</h4>
   <ul>
   <li><a href="#">Skyler</a></li>
-  <li><a href="#">Jesse</a></li>
-  <li><a href="#">Mike</a></li>
-  <li><a href="#">Holly</a></li>
   </ul>
   <h4>Authors</h4>
   <ul>
   <li><a href="#">Skyler</a></li>
-  <li><a href="#">Jesse</a></li>
-  <li><a href="#">Mike</a></li>
-  <li><a href="#">Holly</a></li>
   </ul>
   </div>
   </div>
