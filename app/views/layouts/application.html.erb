@@ -25,8 +25,10 @@
   </div>
   <div class="top-bar-right">
   <ul class="menu">
-  <li><a href="#">One</a></li>
-  <li><a href="#">Two</a></li>
+    <% if !current_user %>
+  <li><%=link_to "Create a profile", users_path%></li>
+    <% end %>
+  <li><%=link_to "user profile", user_path(current_user) %></li>
   <li><a href="#">Three</a></li>
   <li><a href="#">Four</a></li>
   </ul>
