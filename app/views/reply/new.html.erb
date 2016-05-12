@@ -1,0 +1,15 @@
+Reply to Tweet!
+<div class="col-md-6 col-md-offset-3">
+  <h2>New comment for <%=@tweet.title%></h2>
+  <div class="form-group">
+    <%= form_for @reply do |f| %>
+      <div>
+        <%= f.text_area :body, placeholder: "Comment Body", size:"60x10", class:"form-control" %>
+      </div>
+      <br>
+      <div>
+      <%= f.submit "Submit", class:"btn btn-primary" %>
+    <% end %>
+    </div>
+  </div>
+</div>

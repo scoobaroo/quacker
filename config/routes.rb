@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'comment/index'
+
   root "tweets#index"
 
   get "/tweets", to: "tweets#index", as: "tweets"
@@ -10,6 +12,13 @@ Rails.application.routes.draw do
   patch "/tweets/:id", to: "tweets#update"
   delete "/tweets/:id", to: "tweets#destroy", as: "destroy_tweet"
 
+  get "/tweets/:id/comments", to: "comments#index", as: "comments"
+  get "/tweets/:id/comments/new", to: "comments#new", as: "new_comment"
+  get "/tweets/:id/comments/:comment_id", to: "comments#show", as: "comment"
+  get "/tweets/:id/comments/:comment_id/edit", to: "comments#edit", as: "edit_comment"
+  post "/tweets/:id/comments", to: "comments#create"
+  patch "/tweets/:id/comments/:comment_id", to: "comments#update", as:"comment_update"
+  delete "/tweets/:id/comments/:comment_id", to: "comments#destroy", as: "destroy_comment"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

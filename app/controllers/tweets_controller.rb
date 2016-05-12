@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
 
   def index
-    @tweets = Tweet.all.order(created_at: :desc)
+    @tweets = Tweet.all
     render :index
   end
 
@@ -17,6 +17,7 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
+    @comments = @tweet.comments
     render :show
   end
 

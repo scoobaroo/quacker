@@ -1,6 +1,6 @@
 <h1>Show Tweet</h1>
 <div class="blog-post">
-<h3><%= link_to @tweet.title, tweet_path(@tweet) %></h3>
+<h3><strong><%= link_to @tweet.title, tweet_path(@tweet) %></strong></h3>
 <img class="thumbnail" src="http://placehold.it/850x350">
 <p><%= @tweet.body  %></p>
 <div class="callout">
@@ -9,6 +9,13 @@
 <li><a href="#">Comments: @tweet.comments</a></li>
 <li>Latitude: <%= @tweet.latitude %></li>
 <li>Longitude <%= @tweet.longitude %></li>
+<li><%= link_to "Comment!", new_comment_path(@tweet) %>
+</ul>
+<ul class="menu simple">
+  <li><h5>Comments:</h5></li>
+  <% @comments.each do |c| %>
+  <li><br><%= link_to c.body, comments_path %></li>
+  <br><% end %>
 </ul>
 </div>
 </div>
