@@ -1,0 +1,12 @@
+<div class="">
+  <%= form_for @user do |f| %>
+
+  <%= f.text_field :username %> <br>
+  <%= f.text_field :email %> <br>
+  <%= f.password_field :password %> <br>
+  <%= f.text_field :current_city %> <br>
+  <%= f.submit "Edit"%>
+  <% end %>
+</div>
+
+<%= button_to "Delete Profile", user_path, :method => :delete, data: { confirm: "Are you sure? There is no coming back!"} %>

@@ -12,6 +12,8 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.create(tweet_params)
+    @user = current_user
+    @user.tweets << @tweet
     redirect_to tweets_path
   end
 

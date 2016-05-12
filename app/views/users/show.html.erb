@@ -1,0 +1,8 @@
+<%= @user.username %> <br>
+<strong><%= @user.current_city %></strong>
+<p>
+  <strong>Member since: </strong><%= @user.created_at.strftime("%m/%d/%Y") %>
+  <% if current_user.id == @user.id %>
+    <%= link_to "Edit", edit_user_path %>
+  <% end %>
+</p>
