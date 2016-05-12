@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/tweets/:id/edit", to: "tweets#edit", as: "edit_tweet"
   post "/tweets/", to: "tweets#create"
   patch "/tweets/:id", to: "tweets#update"
-  delete "/tweets/:id", to: "tweets#destroy"
+  delete "/tweets/:id", to: "tweets#destroy", as: "destroy_tweet"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
