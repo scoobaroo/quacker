@@ -1,5 +1,7 @@
 <h1>Index of Tweets</h1>
 <% @tweets.each do |t| %>
-<%= t.title %>
+<%= link_to t.title, tweet_path(t) %>
 <%= t.body %>
+<br>
 <% end %>
+<%= link_to "Post New Tweet", new_tweet_path %>
