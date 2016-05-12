@@ -15,8 +15,14 @@ class TweetsController < ApplicationController
     redirect_to tweets_path
   end
 
+  def show
+    @tweet = Tweet.find(params[:id])
+    render :show
+  end
+
   def update
-    @tweet = Tweet.update(tweet_params)
+    @tweet = Tweet.find(params[:id])
+    @tweet.update(tweet_params)
     redirect_to tweets_path
   end
 

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/tweets", to: "tweets#index", as: "tweets"
   get "/tweets/new", to: "tweets#new", as: "new_tweet"
   get "/tweets/:id", to: "tweets#show", as: "tweet"
-  get "/tweets/edit", to: "tweets#edit", as: "edit_tweet"
+  get "/tweets/:id/edit", to: "tweets#edit", as: "edit_tweet"
   post "/tweets/", to: "tweets#create"
   patch "/tweets/:id", to: "tweets#update"
   delete "/tweets/:id", to: "tweets#destroy"
