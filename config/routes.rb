@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root to: "users#index"
-  
+
   resources :users, shallow: true do
     resources :tweets
+    end
   end
-
 
   # root "tweets#index"
   #
