@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require app
+//= require foundation.min.js
+//= require foundation
+//= require what-input
 //= require_tree .

@@ -1,48 +1,35 @@
 # Quacker
-Project 2
+A microblogging app that includes geolocation of user quacks.
 
+## TECHNOLOGIES USED
+* Rails
+* jQuery
+* Javascript
+* Foundation
+* Heroku
 
-
-## USER STORIES
-____
-
-### Homepage
-* A user can visit the homepage
-* They will see a nav-bar with a login link
-* they will se sign up form
-* footer will have a link to improvement suggestions
-
-### Nav-bar
-
-* Nav-bar will have home link
-* log-in / log-out
-* Search bar (ice box)
-* Quacklocation is where you can see map with quacks on it.
-
-
-### Log-in -  Sign-up
-* Under login link, they will be taken to a basic login page where they can log in
-* Sign up form will be asking user for username, email and password
-* After creating an account, they will be taken to profile page
-
-### profile
-
-* On profile, user will see their photo, username, quack count, following and followers
-* Button to edit profile
-* Recent quacks by the users they are currently following.
-* Textfield with a button to send quacks.
-* After sending a quack, user will be redirected to profile.
+## EXISTING FEATURES
+* A user can create an account with a photo, username,
+* A user can sign up with an email and will be asked to create a username and password.
+* A user will have a quack count, following and followers.
+* A user can log-in and log-out of their accounts.
+* A user can create, view, update, and delete a quack.
+* A user can only update and delete their own quacks.
+* A user can view another user's profile with their followers and following.
+* A user can click a follow or unfollow button on another user's profile.
+* A user can re-quack another user's quack and add comments to quacks.
+* A user can send a quack and will be redirected to their profile.
 * Recent quacks will have a photo, username, the content of the quack and time of the quack.
-* User will have an option to like a quack.
-* User can click on the username and user will be taken to profile of the quack owner.
+* A user will have an option to like a quack or dislike a quack.
 
-### Profile of other users
+## SPECIAL FEATURES
+* GOOGLE Maps API (Geolocation)
+* Twitter API
 
-* User will see their photo, username, quack count, following and followers.
-* Follow/Unfollow Button
-* Users can not edit other other user profiles.
-
-### Quacklocation
-
-* User will be taken to a different view where they will see a map.
-* The map will be displaying quacks that happened around the world
+## PLANNED FEATURES
+* A geolocation will be added to a user's quack and be taken to a different view where they will see a map of the most tweeted location.
+* A user can see a map that will display quacks that happened around the world
+* A user can see trending quacks.
+* A user can search for a tweet.
+* A user can upload a photo or a video.
+* A user will receive a welcome email after creating an account.

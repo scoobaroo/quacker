@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
 
   def new
     @user = User.new
-    render :new
   end
 
   def create
@@ -11,22 +10,17 @@ class SessionsController < ApplicationController
     if @user
       login(@user)
       flash[:success] = "Successfully logged in."
-      redirect_to user_path
+      puts "login!"
+      redirect_to @user
     else
       redirect_to login_path
-    end
-
-    def destroy
-      logout
-      redirect_to root_path
+      puts "logout!"
     end
   end
 
-  private
-  #
-  # def user_params
-  #
-  #   params.require(:user).permit(:username, :password)
-  #
-  # end
+  def destroy
+    logout
+    redirect_to root_path
+  end
+
 end
