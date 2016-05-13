@@ -21,18 +21,6 @@
       </ul>
     </div>
   </div>
-    <div class="top-bar-right">
-      <ul class="menu">
-        <li> <%= link_to "Tweets Index", tweets_path %></li>
-        <% if !current_user %>
-          <li><%=link_to "Sign In", login_path%></li>
-        <% end %>
-        <% if current_user %>
-          <li><%=link_to "Profile", user_path(current_user) %></li>
-          <li><%=link_to "Logout",logout_path(current_user)%></li>
-        <% end %>
-      </ul>
-    </div>
   </div>
   <% flash.each do |name, msg| %>
     <p>

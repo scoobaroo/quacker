@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by_id(params[:id])
-    unless current_user.id == @user
+    unless current_user.id == @user.id
       flash[:notice] = "You may not edit other user accounts"
       redirect_to "/"
     end
