@@ -18,12 +18,17 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by_id(params[:id])
+    unless current_user.id == @user
+      flash[:notice] = "You may not edit other user accounts"
+      redirect_to "/"
+    end
   end
 
   def update
     @user = User.find_by_id(params[:id])
     if current_user.id == @user.id
       @user.update_attributes(user_params)
+      flash[:notice] = "Profile updated."
       redirect_to @user
     else
       flash[:notice] = "What do you think you are doing? Do you think this is a game?"
@@ -33,8 +38,13 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find_by_id(params[:id])
+    if current_user.id == @user.id
     @user.destroy
     redirect_to "/"
+    else
+      flash[:notice] = "What do you think you are doing? Do you think this is a game?"
+      redirect_to user_path
+    end
   end
 
   def create

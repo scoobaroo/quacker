@@ -9,12 +9,13 @@ class SessionsController < ApplicationController
     @user = User.confirm(user_params)
     if @user
       login(@user)
-      flash[:success] = "Successfully logged in."
+      flash[:notice] = "Successfully logged in."
       puts "login!"
       redirect_to @user
     else
+      flash[:notice] = "Failed to log in. Please check your username/password."
       redirect_to login_path
-      puts "logout!"
+      puts "Login failed!"
     end
   end
 
