@@ -6,7 +6,7 @@
 <p><%= t.body  %></p>
 <div class="callout">
 <ul class="menu simple">
-<li><a href="#">Author:<%=t.user%></li>
+<li>Author:<%=link_to t.user.username, user_path(t.user)%></li>
 <li><%= link_to "Comment!", new_comment_path(t) %>
 <li>Latitude: <%= t.latitude %></li>
 <li>Longitude <%= t.longitude %></li>

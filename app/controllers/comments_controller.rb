@@ -26,12 +26,14 @@ class CommentsController < ApplicationController
   end
 
   def update
+    @tweet = Tweet.find(params[:id])
     @comment = Comment.find(params[:comment_id])
     @comment.update(comment_params)
-    redirect_to tweets_path
+    redirect_to tweet_path(@tweet)
   end
 
   def edit
+    @tweet = Tweet.find(params[:id])
     @comment = Comment.find(params[:comment_id])
     render :edit
   end

@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   root to: "users#index"
-  resources :users
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
 
   get 'users/search/:id', to: "users#search", as: "user_search"
+
   get "/tweets", to: "tweets#index", as: "tweets"
   get "/tweets/new", to: "tweets#new", as: "new_tweet"
   get "/tweets/:id", to: "tweets#show", as: "tweet"
@@ -14,7 +21,7 @@ Rails.application.routes.draw do
   get "/tweets/:id/comments", to: "comments#index", as: "comments"
   get "/tweets/:id/comments/new", to: "comments#new", as: "new_comment"
   get "/tweets/:id/comments/:comment_id", to: "comments#show", as: "comment"
-  get "/tweets/:id/comments/:comment_id/edit", to: "comments#edit", as: "edit_comment"
+  get "/tweets/:id/comments/:comment_id/edit", to: "comments#edit", as: "tweet_comment"
   post "/tweets/:id/comments", to: "comments#create"
   patch "/tweets/:id/comments/:comment_id", to: "comments#update", as:"comment_update"
   delete "/tweets/:id/comments/:comment_id", to: "comments#destroy", as: "destroy_comment"
