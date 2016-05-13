@@ -1,3 +1,9 @@
+<% @users.each do |u| %>
+ <%= link_to u.username, user_path(u) %>
+ <br>
+    <%= render 'unfollow' %>
+    <%= render 'follow' %>
+<% end %>
 <div class="">
   <%= form_for @user do |f| %>
   <%= f.label :username %>
