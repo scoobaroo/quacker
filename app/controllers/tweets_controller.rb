@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
+    @following = current_user.following
     render :index
   end
 

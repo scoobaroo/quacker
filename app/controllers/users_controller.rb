@@ -4,12 +4,13 @@ class UsersController < ApplicationController
   def index
     @user = User.new
     @users= User.all.order(created_at: :desc)
+    @following = current_user.following
     render :index
   end
 
   def show
     @user = User.find_by_id(params[:id])
-
+    @following = @user.following
     if @user == nil
       redirect_to root_path
       flash[:notice] = "user not found"

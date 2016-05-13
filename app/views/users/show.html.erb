@@ -9,6 +9,11 @@
   <div class="medium-8 columns">
 
     <p>Hello <%= @user.username %> </p><br>
+    You are following: <br>
+    <% @following.each do |f| %>
+    <%= link_to f.username, user_path(f) %>
+    <% end %>
+    <br>
     <strong>Current City: <%= @user.current_city %></strong>
     <p>
       <strong>Member since: </strong><%= @user.created_at.strftime("%m/%d/%Y") %>
