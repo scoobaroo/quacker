@@ -12,9 +12,11 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @tweet = Tweet.find(params[:id])
     @comment = @tweet.comments.create(comment_params)
     @tweet.comments << @comment
+    @user.comments << @comment
     redirect_to tweet_path(@tweet)
   end
 
