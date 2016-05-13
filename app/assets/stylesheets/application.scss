@@ -1,0 +1,46 @@
+/*
+ *= require foundation
+ *= require foundation.min.css
+ *= require app
+ *= require_self
+ *= require_tree .
+ */
+
+ $menu-color: rgba(52,65,70,1);
+ $duck-color: rgba(241, 196, 15,1);
+
+ .top-bar, .top-bar ul {
+   background-color: $menu-color;
+   color: $duck-color;
+ }
+ .top-bar a {
+   color: $duck-color;
+ }
+ .button {
+   background-color: $menu-color;
+ }
+ .button:hover {
+   background-color: $duck-color;
+ }
+ .delete-button {
+   background-color: #e74c3c;
+ }
+ .delete-button:hover{
+   background-color: #c0392b;
+ }
+ .sign-up-form {
+   left: 80%;
+   width: 100%;
+   margin-top: 10%;
+ }
+
+.topbar-section {
+  background-color: rgba(52,65,70,1);
+  padding: 0;
+}
+.top-bar-left{
+  background-color: rgba(52,65,70,1);
+}
+.duck {
+  width: 30px;
+}
