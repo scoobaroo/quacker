@@ -6,10 +6,10 @@
     <%= f.text_area :body, placeholder: "Body", size: "60x12" %>
   </div>
   <div>
-    <%= f.text_field :longitude, placeholder: "Longitude" %>
+    <%= f.number_field :longitude, :step => "0.01" ,placeholder: "Longitude" %>
   </div>
   <div>
-    <%= f.text_field :latitude, placeholder: "Latitude" %>
+    <%= f.number_field :latitude,:step=>"0.01", placeholder: "Latitude" %>
   </div>
   <div>
     <%= f.submit "Submit" %>
