@@ -18,3 +18,6 @@
 //= require foundation
 //= require what-input
 //= require_tree .
+
+
+Turbolinks.enableProgressBar();
