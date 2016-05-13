@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "users#index"
   resources :users
 
+  get 'users/search/:id', to: "users#search", as: "user_search"
   get "/tweets", to: "tweets#index", as: "tweets"
   get "/tweets/new", to: "tweets#new", as: "new_tweet"
   get "/tweets/:id", to: "tweets#show", as: "tweet"

@@ -6,8 +6,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
-    render :show
+
+      @user = User.find_by_id(params[:id])
+    # if @user == nil
+    #   redirect_to root_path
+    #   flash[:notice] = "user not found"
+    # end
+
   end
 
   def edit
@@ -42,6 +47,9 @@ class UsersController < ApplicationController
 
   end
 
+  def search
+    @users = User.search(params[:search])
+  end
 
   private
 

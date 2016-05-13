@@ -14,7 +14,7 @@
 <ul class="menu simple">
   <li><h5>Comments:</h5></li>
   <% @comments.each do |c| %>
-  <li><br><%= link_to c.body, comments_path %></li>
+  <li><br><%= link_to c.body, comments_path %>Author:<%= link_to c.user.username, user_path(c.user) %></li>
   <br><% end %>
 </ul>
 </div>

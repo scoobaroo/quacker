@@ -1,11 +1,23 @@
-<%= @user.username %> <br>
-<strong><%= @user.current_city %></strong>
-<p>
-  <strong>Member since: </strong><%= @user.created_at.strftime("%m/%d/%Y") %>
-  <% if current_user.id == @user.id %>
-    <%= link_to "Edit", edit_user_path %>
-  <% end %>
-  <% @user.tweets.each do |t| %>
-   <%= t.body %>
-  <% end %>
-</p>
+<%= form_tag user_search_path, method: 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  </p>
+<% end %>
+
+<div class="row" id="user-info">
+  <div class="medium-8 columns">
+
+    <p>Hello <%= @user.username %> </p><br>
+    <strong>Current City: <%= @user.current_city %></strong>
+    <p>
+      <strong>Member since: </strong><%= @user.created_at.strftime("%m/%d/%Y") %>
+      <% if current_user.id == @user.id %>
+        <%= link_to "Edit", edit_user_path %>
+      <% end %>
+      <% @user.tweets.each do |t| %>
+       <%= t.body %>
+      <% end %>
+    </p>
+  </div>
+</div>
