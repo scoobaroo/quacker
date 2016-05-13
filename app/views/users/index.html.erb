@@ -1,19 +1,19 @@
-<% @users.each do |u|
-  relationship = Relationship.find_by(follower_id: current_user.id, followed_id: u.id)
-%>
+<% @users.each do |u|%>
  <%= link_to u.username, user_path(u) %>
  <br>
-
-
-<% if relationship %>
- <%= form_tag(relationship_path(relationship.id), method: :delete) do %>
+  <%  if current_user%>
+  <% relationship = Relationship.find_by(follower_id: current_user.id, followed_id: u.id) %>
+  <% end %>
+  <% if relationship %>
+  <%= form_tag(relationship_path(relationship.id), method: :delete) do %>
   <%= submit_tag "Unfollow", class: "btn" %>
  <% end %>
 <% end %>
-
+  <% if current_user!=u && !relationship%>
  <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
   <div><%= hidden_field_tag :followed_id, u.id %></div>
   <%= f.submit "Follow", class: "btn btn-primary" %>
+  <% end %>
  <% end %>
 
 <% end %>

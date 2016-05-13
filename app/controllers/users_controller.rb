@@ -3,8 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @user = User.new
-    @users= User.all
-
+    @users= User.all.order(created_at: :desc)
     render :index
   end
 
