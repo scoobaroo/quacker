@@ -9,9 +9,16 @@
   <div class="medium-8 columns">
 
     <p>Hello <%= @user.username %> </p><br>
-    You are following: <br>
+    <strong>You are following:</strong> <br>
     <% @following.each do |f| %>
     <%= link_to f.username, user_path(f) %>
+    <br>
+    <% end %>
+    <br>
+    <strong> User Tweets:</strong> <br>
+    <% @user.tweets.each do |t| %>
+      <%= t.title %>
+      <%= t.body %>
     <% end %>
     <br>
     <strong>Current City: <%= @user.current_city %></strong>

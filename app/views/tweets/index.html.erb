@@ -1,20 +1,20 @@
 <h1>Index of Tweets</h1>
-<% @following.each do |following| %>
-<% following.tweets.each do |tweet| %>
+<% @following.each do |f| %>
+  <% f.tweets.each do |tweet| %>
 <div class="blog-post">
-<h3><%= link_to tweet.title, tweet_path(t) %></h3>
+<h3><%= link_to tweet.title, tweet_path(tweet) %></h3>
 <img class="thumbnail" src="http://placehold.it/850x350">
 <p><%= tweet.body  %></p>
 <div class="callout">
 <ul class="menu simple">
 <li>Author:<%=link_to tweet.user.username, user_path(tweet.user)%></li>
-<li><%= link_to "Comment!", new_comment_path(t) %>
+<li><%= link_to "Comment!", new_comment_path(tweet) %>
 <li>Latitude: <%= tweet.latitude %></li>
 <li>Longitude <%= tweet.longitude %></li>
 </ul>
 </div>
 </div>
 <br>
-<% end %>
+  <% end %>
 <% end %>
 <%= link_to "Post New Tweet", new_tweet_path %>
