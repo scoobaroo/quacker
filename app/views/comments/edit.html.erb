@@ -5,7 +5,7 @@
       <div>
         <%= f.text_area :body, placeholder: "Comment Body", size:"60x10", class:"form-control" %>
       </div>
-      <%= f.submit "Submit", formaction: reply_update_path(@tweet,@comment), class:"btn btn-primary" %>
+      <%= f.submit "Submit", formaction: comment_update_path(@tweet,@comment), class:"btn btn-primary" %>
     <% end %>
   </div>
 </div>

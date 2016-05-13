@@ -5,8 +5,7 @@
 <p><%= @tweet.body  %></p>
 <div class="callout">
 <ul class="menu simple">
-<li><a href="#">Author: @tweet.user</a></li>
-<li><a href="#">Comments: @tweet.comments</a></li>
+<li>Author: <%=link_to @tweet.user.username, user_path(@tweet.user)%></li>
 <li>Latitude: <%= @tweet.latitude %></li>
 <li>Longitude <%= @tweet.longitude %></li>
 <li><%= link_to "Comment!", new_comment_path(@tweet) %>
@@ -15,6 +14,7 @@
   <li><h5>Comments:</h5></li>
   <% @comments.each do |c| %>
   <li><br><%= link_to c.body, comments_path %>Author:<%= link_to c.user.username, user_path(c.user) %></li>
+  <%= link_to "Edit Comment", tweet_comment_path(@tweet,c) %>
   <br><% end %>
 </ul>
 </div>
