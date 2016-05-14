@@ -1,6 +1,5 @@
 <div class="">
   <%= form_for @user, url: "/sessions", method: "post" do |f| %>
-
   <%= f.text_field :username %> <br>
   <%= f.password_field :password %> <br>
   <%= f.submit "Sign In"%>

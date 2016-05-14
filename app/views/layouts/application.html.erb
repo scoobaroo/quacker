@@ -2,46 +2,42 @@
 <html>
   <head>
     <title>Quacker</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   </head>
 <body>
   <div class="top-bar">
     <div class="top-bar-left">
       <ul class="menu">
-        <li> <%= link_to "users index", users_path %></li>
-        <li> <%= link_to "Tweets Index", tweets_path %></li>
+        <!-- <li> <%= link_to "users index", users_path %></li> -->
+        <!-- <li> <%= link_to "Tweets Index", tweets_path %></li> -->
         <% if !current_user %>
-          <li><%=link_to "Sign In", login_path%></li>
           <li class="menu-text"><%= link_to image_tag("noun_151982_cc.png", class:"duck"), root_path %></li>
+          <li class="sign-in"><%= link_to "Sign In", login_path %></li>
         <% else %>
           <li class="menu-text"><%= link_to image_tag("noun_151982_cc.png", class:"duck"), current_user %></li>
           <li><%=link_to "Profile", user_path(current_user) %></li>
-          <li><%=link_to "Logout",logout_path(current_user)%></li>
+          <li><%=link_to "Logout", logout_path(current_user)%></li>
         <% end %>
       </ul>
     </div>
-  </div>
   </div>
   <% flash.each do |name, msg| %>
     <p>
       <small class="alert alert-info"> <%= name.capitalize %>: <%= msg %> </small>
     </p>
   <% end %>
-    <div class="row sign-up-form" id="content">
-      <div class="medium-3 columns">
+    <!-- <div class="row sign-up-form" id="content">
+      <div class="medium-3 medium-offset-7 columns"> -->
         <%= yield %>
-      </div>
-      <div class="medium-3 columns" data-sticky-container>
-        <div class="sticky" data-sticky data-anchor="content">
-        </div>
-      </div>
-    </div>
-    <div class="row column">
-    </div>
+      <!-- </div> -->
+      <!-- <div class="medium-3 medium-offset-7 columns" data-sticky-container>
+        <div class="sticky" data-sticky data-anchor="content"></div>
+      </div> -->
+    <!-- </div> -->
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    </body>
+  </body>
 </html>

@@ -1,33 +1,35 @@
-<% @users.each do |u|%>
+<!-- <% @users.each do |u|%>
  <%= link_to u.username, user_path(u) %>
  <br>
-  <%  if current_user%>
-  <% relationship = Relationship.find_by(follower_id: current_user.id, followed_id: u.id) %>
+  <%  if current_user %>
+    <% relationship = Relationship.find_by(follower_id: current_user.id, followed_id: u.id) %>
   <% end %>
   <% if relationship %>
-  <%= form_tag(relationship_path(relationship.id), method: :delete) do %>
-  <%= submit_tag "Unfollow", class: "btn" %>
- <% end %>
+    <%= form_tag(relationship_path(relationship.id), method: :delete) do %>
+    <%= submit_tag "Unfollow", class: "btn" %>
+  <% end %>
 <% end %>
   <% if current_user!=u && !relationship%>
     <% if current_user %>
       <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
-      <div><%= hidden_field_tag :followed_id, u.id %></div>
+        <div><%= hidden_field_tag :followed_id, u.id %></div>
       <%= f.submit "Follow", class: "btn btn-primary" %>
     <% end %>
   <% end %>
- <% end %>
-
-<% end %>
-<div class="">
-  <%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username , placeholder:"Username" %> <br>
-  <%= f.label :email %>
-  <%= f.text_field :email ,placeholder: "Email" %> <br>
-  <%= f.label :password %>
-  <%= f.password_field :password , placeholder: "password"%> <br>
-  <%= f.submit "Create Account", class: "button radius"%> or you can
-  <%= link_to "Sign In", login_path %>
-  <% end %>
+ <% end %> -->
+<!--
+<% end %> -->
+<div class="row sign-up-form" id="content">
+  <div class="medium-3 medium-offset-7 columns">
+    <%= form_for @user do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username , placeholder:"Username" %> <br>
+      <%= f.label :email %>
+      <%= f.text_field :email ,placeholder: "Email" %> <br>
+      <%= f.label :password %>
+      <%= f.password_field :password , placeholder: "Password" %> <br>
+      <%= f.submit "Create Account", class:"button radius" %>
+      <p> Already have an account? <%= link_to "Sign In", login_path %></p>
+    <% end %>
+  </div>
 </div>

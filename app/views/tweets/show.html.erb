@@ -1,23 +1,23 @@
 <h1>Show Tweet</h1>
 <div class="blog-post">
-<h3><strong><%= link_to @tweet.title, tweet_path(@tweet) %></strong></h3>
-<img class="thumbnail" src="http://placehold.it/850x350">
-<p><%= @tweet.body  %></p>
-<div class="callout">
-<ul class="menu simple">
-<li>Author: <%=link_to @tweet.user.username, user_path(@tweet.user)%></li>
-<li>Latitude: <%= @tweet.latitude %></li>
-<li>Longitude <%= @tweet.longitude %></li>
-<li><%= link_to "Comment!", new_comment_path(@tweet) %>
-</ul>
-<ul class="menu simple">
-  <li><h5>Comments:</h5></li>
-  <% @comments.each do |c| %>
-  <li><br><%= link_to c.body, comments_path %>Author:<%= link_to c.user.username, user_path(c.user) %></li>
-  <%= link_to "Edit Comment", tweet_comment_path(@tweet,c) %>
-  <br><% end %>
-</ul>
-</div>
+  <h3><strong><%= link_to @tweet.title, tweet_path(@tweet) %></strong></h3>
+  <img class="thumbnail" src="http://placehold.it/850x350">
+  <p><%= @tweet.body  %></p>
+  <div class="callout">
+    <ul class="menu simple">
+      <li>Author: <%=link_to @tweet.user.username, user_path(@tweet.user)%></li>
+      <li>Latitude: <%= @tweet.latitude %> </li>
+      <li>Longitude <%= @tweet.longitude %> </li>
+      <li> <%= link_to "Comment!", new_comment_path(@tweet) %> </li>
+    </ul>
+    <ul class="menu simple">
+      <li><h5>Comments:</h5></li>
+      <% @comments.each do |c| %>
+        <li><br><%= link_to c.body, comments_path %> Author: <%= link_to c.user.username, user_path(c.user) %></li>
+        <%= link_to "Edit Comment", tweet_comment_path(@tweet,c) %>
+      <% end %><br>
+    </ul>
+  </div>
 </div>
 <%= link_to "Edit Tweet", edit_tweet_path(@tweet) %>
 <%= link_to "Tweets Index", tweets_path %>

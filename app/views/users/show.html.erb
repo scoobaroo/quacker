@@ -7,9 +7,8 @@
 
 <div class="row" id="user-info">
   <div class="medium-8 columns">
-
     <p>Hello <%= @user.username %> </p><br>
-    <strong>Current City: <%= @user.current_city %></strong>
+      <strong>Current City: <%= @user.current_city %></strong>
     <p>
       <strong>Member since: </strong><%= @user.created_at.strftime("%m/%d/%Y") %>
       <% if current_user.id == @user.id %>
