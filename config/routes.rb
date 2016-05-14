@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
 
+  patch "tweets/:id/like", to: "tweets#like", as: "like_tweet"
+  patch "tweets/:id/dislike", to: "tweets#dislike", as:"dislike_tweet"
+  
   get 'users/search/:id', to: "users#search", as: "user_search"
 
   get "/tweets", to: "tweets#index", as: "tweets"

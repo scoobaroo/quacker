@@ -26,19 +26,48 @@ class TweetsController < ApplicationController
 
   def update
     @tweet = Tweet.find(params[:id])
-    @tweet.update(tweet_params)
+    if current_user == @tweet.user
+      @tweet.update(tweet_params)
+    else
+      flash[:notice]="Not your tweet!"
+    end
     redirect_to tweets_path
   end
 
   def edit
     @tweet = Tweet.find(params[:id])
-    render :edit
+    if current_user == @tweet.user
+      render :edit
+    else
+      flash[:notice]="Not your tweet!"
+      redirect_to tweets_path
+    end
   end
 
   def destroy
     @tweet = Tweet.find(params[:id])
-    @tweet.destroy
+    if current_user == @tweet.user
+      @tweet.destroy
+    else
+      flash[:notice]= "Not Your tweet!"
+    end
     redirect_to tweets_path
+  end
+
+  def like
+    @tweet = Tweet.find(params[:id])
+    @tweet.liked_by current_user
+
+    if request.xhr?
+      head :ok
+    else
+      redirect_to @tweet
+    end
+  end
+  def dislike
+    @tweet = Tweet.find(params[:id])
+    @tweet.disliked_by current_user
+    redirect_to @tweet
   end
 
   private

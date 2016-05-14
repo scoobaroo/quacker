@@ -27,6 +27,15 @@
   </div>
   <div class="row sign-up-form" id="content">
     <div class="medium-3 columns">
+      <div class="container flash-msg">
+        <font color="red">
+          <% flash.each do |name, msg| %>
+          <h1>
+            <%= name.capitalize %>: <%= msg %>
+          </h1>
+          <% end %>
+        </font>
+      </div>
       <%= yield %>
     </div>
     <div class="medium-3 columns" data-sticky-container>

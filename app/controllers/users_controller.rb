@@ -66,12 +66,9 @@ class UsersController < ApplicationController
   def search
     @users = User.search(params[:search])
   end
-
   private
 
   def user_params
-
     params.require(:user).permit(:username, :email,:password, :current_city)
-
   end
 end
