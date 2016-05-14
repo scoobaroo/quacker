@@ -1,4 +1,5 @@
 <h1>Index of Tweets</h1>
+<%  if @following %>
 <% @following.each do |f| %>
   <% f.tweets.each do |tweet| %>
 <div class="blog-post">
@@ -20,6 +21,7 @@
 </div>
 </div>
 <br>
+<% end %>
 <% end %>
 <% end %>
 <%= link_to "Post New Tweet", new_tweet_path %>

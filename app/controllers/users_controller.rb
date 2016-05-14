@@ -4,8 +4,11 @@ class UsersController < ApplicationController
   def index
     @user = User.new
     @users= User.all.order(created_at: :desc)
-    @following = current_user.following
-    render :index
+    if current_user
+      @following = current_user.following
+    else
+      render :index
+    end
   end
 
   def show

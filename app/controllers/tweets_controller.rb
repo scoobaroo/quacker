@@ -2,8 +2,11 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
-    @following = current_user.following
-    render :index
+    if current_user
+      @following = current_user.following
+    else
+      render :index
+    end
   end
 
   def new
@@ -64,6 +67,7 @@ class TweetsController < ApplicationController
       redirect_to @tweet
     end
   end
+
   def dislike
     @tweet = Tweet.find(params[:id])
     @tweet.disliked_by current_user
