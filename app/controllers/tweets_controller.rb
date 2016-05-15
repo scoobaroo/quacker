@@ -26,7 +26,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments
     @following = current_user.following
-    redirect_to user_path(@user)
+    render :show
   end
 
   def update
