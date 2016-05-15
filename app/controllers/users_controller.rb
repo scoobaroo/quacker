@@ -3,12 +3,14 @@ class UsersController < ApplicationController
 
   def index
     @user = User.new
-    @users= User.all.order(created_at: :desc)
+    @users = User.all.order(created_at: :desc)
     render :index
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    user_id = params[:id]
+    @user = User.find_by_id(user_id)
+    @tweets = Tweet.where(user_id: user_id)
 
     if @user == nil
       redirect_to root_path

@@ -2,7 +2,6 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
-    render :index
   end
 
   def new
@@ -14,7 +13,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.create(tweet_params)
     @user = current_user
     @user.tweets << @tweet
-    redirect_to tweets_path
+    redirect_to user_path(@user)
   end
 
   def show
