@@ -22,6 +22,7 @@ class TweetsController < ApplicationController
   end
 
   def show
+    @tweets = Tweet.all
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments
     @following = current_user.following

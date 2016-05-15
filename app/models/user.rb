@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_secure_password
-  acts_as_votable
   def self.confirm(params)
     @user = User.find_by({username: params[:username]})
     @user.try(:authenticate, params[:password])
@@ -26,7 +25,6 @@ class User < ActiveRecord::Base
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
   end
-
   def unfollow(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
