@@ -1,16 +1,17 @@
-<h1>Index of Tweets</h1>
+<hr>
+<h1 class="tweetsIndex">Index of Tweets</h1>
 <%  if @following %>
 <% @following.each do |f| %>
  <% f.tweets.each do |tweet| %>
 <div class="blog-post">
 <h3><%= link_to tweet.title, tweet_path(tweet) %></h3>
-<img class="thumbnail" src="http://placehold.it/850x350">
+<img class="thumbnail" src="http://placehold.it/100x100">
 <p><%= tweet.body  %></p>
 <%= like_tweet_path(current_user,tweet) %>
 <div class="callout">
 <ul class="menu simple">
  <%= link_to "Dislike", dislike_tweet_path(tweet), class: 'vote', method: :patch, id: tweet.id  %>
- <%= link_to "Like", like_tweet_path(tweet), class: 'vote', method: :patch, id: tweet.id  %>
+ <%= link_to "Like", like_tweet_path(tweet), class: 'vote', method: :patch, id: tweet.id %>
 <li>Likes: <%= tweet.get_likes.size %>
 <li>DisLikes: <%= tweet.get_dislikes.size %>
 <li>Author:<%=link_to tweet.user.username, user_path(tweet.user)%></li>
@@ -24,23 +25,7 @@
 <% end %>
 <% end %>
 <% end %>
-<%= link_to "Post New Tweet", new_tweet_path %>
-<% Tweet.all.each do |tweet| %>
-  <div class="blog-post">
-    <h3> <%= link_to tweet.title, tweet_path(tweet) %> </h3>
-    <img class="thumbnail" src="http://placehold.it/100x100">
-    <p> <%= tweet.body %>  </p>
-    <div class="callout">
-      <ul class="menu simple">
-        <li>Author:<%=link_to tweet.user.username, user_path(tweet.user)%></li>
-        <li> <%= link_to "Comment!", new_comment_path(tweet) %> </li>
-        <li>Latitude: <%= tweet.latitude %> </li>
-        <li>Longitude <%= tweet.longitude %> </li>
-      </ul>
-    </div>
-  </div>
-  <br>
-<% end %>
+
 
 <% if current_user.id == @user.id %>
   <%= link_to "Post New Tweet", new_tweet_path(current_user) %>
