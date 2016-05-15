@@ -5,15 +5,12 @@
     <strong><h5>Hello <%= @user.username %> </h5></strong>
       <strong>Current City:</strong> <%= @user.current_city %>
       <div class="medium-8">
-    <strong>Member since: </strong><%= @user.created_at.strftime("%m/%d/%Y") %>
-    <strong>You are following:</strong> <br>
-    <% @following.each do |f| %>
-    <%= link_to f.username, user_path(f) %>
-    <br>
-    <% end %>
+    <strong>Member since: </strong><%= @user.created_at.strftime("%m/%d/%Y") %><br>
       <% if current_user.id == @user.id %>
-        <%= link_to "Edit", edit_user_path %>
+        <%= link_to "Edit Profile", edit_user_path %><br>
       <% end %>
+      <%= button_to "Followers", users_path, method: 'get', class:"button radius" %>
+      <%= button_to "Following", users_path, method: 'get', class:"button radius" %><br>
     </p>
   </div>
 </div>

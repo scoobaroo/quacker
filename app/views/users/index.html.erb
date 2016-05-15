@@ -6,7 +6,7 @@
 
   <% if relationship %>
     <%= form_tag(relationship_path(relationship.id), method: :delete) do %>
-      <%= submit_tag "Unfollow", class: "btn" %>
+      <%= submit_tag "Unfollow", class:"button radius" %>
     <% end %>
   <% end %>
 
@@ -14,7 +14,7 @@
     <% if current_user %>
       <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
         <div><%= hidden_field_tag :followed_id, user.id %></div>
-      <%= f.submit "Follow", class: "btn btn-primary" %>
+      <%= f.submit "Follow", class:"button radius" %>
       <% end %>
     <% end %>
   <% end %>
