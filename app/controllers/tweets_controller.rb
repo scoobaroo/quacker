@@ -19,7 +19,7 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments
-    render :show
+    redirect_to user_path(@user)
   end
 
   def update

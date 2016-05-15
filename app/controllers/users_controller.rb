@@ -6,11 +6,6 @@ class UsersController < ApplicationController
     render :index
   end
 
-  # def new
-  #   @user = User.new
-  #   render :new
-  # end
-
   def show
     user_id = params[:id]
     @user = User.find_by_id(user_id)
