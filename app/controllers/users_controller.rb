@@ -2,10 +2,14 @@ class UsersController < ApplicationController
   before_action :logged_in?, only: [:edit, :destroy]
 
   def index
-    @user = User.new
     @users = User.all.order(created_at: :desc)
     render :index
   end
+
+  # def new
+  #   @user = User.new
+  #   render :new
+  # end
 
   def show
     user_id = params[:id]
@@ -50,12 +54,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
     if @user.save
       login(@user)
       redirect_to @user
     else
-      render :index
+      render :root
     end
   end
 
