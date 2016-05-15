@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     user_id = params[:id]
     @user = User.find_by_id(user_id)
     @tweets = Tweet.where(user_id: user_id)
-
+    @following = current_user.following
     if @user == nil
       redirect_to root_path
       flash[:notice] = "user not found"

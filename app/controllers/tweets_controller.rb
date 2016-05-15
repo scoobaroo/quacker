@@ -1,8 +1,9 @@
 class TweetsController < ApplicationController
 
-  # def index
-  #   @tweets = Tweet.all
-  # end
+  def index
+    @tweets = Tweet.all
+    @following = current_user.following
+  end
 
   def new
     @tweet = Tweet.new
@@ -19,6 +20,7 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments
+    @following = current_user.following
     redirect_to user_path(@user)
   end
 
