@@ -11,9 +11,24 @@
 </div>
 
 <div class="row" id="user-info">
+
   <div class="medium-8 medium-offset-4 columns">
     <h2>Hello <%= @user.username %> </h2><br>
       <strong>Current City:</strong> <%= @user.current_city %>
+      <div class="medium-8 columns">
+    <p>Hello <%= @user.username %> </p><br>
+    <strong>You are following:</strong> <br>
+    <% @following.each do |f| %>
+    <%= link_to f.username, user_path(f) %>
+    <br>
+    <% end %>
+    <br>
+    <strong> User Tweets:</strong> <br>
+    <% @user.tweets.each do |t| %>
+      <%= t.title %>
+      <%= t.body %>
+    <% end %>
+    <br>
     <p>
       <strong>Member since: </strong><%= @user.created_at.strftime("%m/%d/%Y") %>
       <% if current_user.id == @user.id %>
@@ -22,13 +37,6 @@
     </p>
   </div>
 </div>
-<p>Hello <%= @user.username %> </p><br>
-  <strong>You are following:</strong> <br>
-  <% @following.each do |f| %>
-  <%= link_to f.username, user_path(f) %>
-  <br>
-  <% end %>
-  <br>
 
 <div class="tweets">
   <%= render "tweets/index" %>

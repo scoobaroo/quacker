@@ -2,15 +2,18 @@ class UsersController < ApplicationController
   before_action :logged_in?, only: [:edit, :destroy]
 
   def index
-    @users = User.all.order(created_at: :desc)
-    render :index
+    @user = User.new
+    @users= User.all.order(created_at: :desc)
+    if current_user
+      @following = current_user.following
+    else
+      render :index
+    end
   end
 
   def show
-    user_id = params[:id]
-    @user = User.find_by_id(user_id)
-    @tweets = Tweet.where(user_id: user_id)
-    @following = current_user.following
+    @user = User.find_by_id(params[:id])
+    @following = @user.following
     if @user == nil
       redirect_to root_path
       flash[:notice] = "user not found"
@@ -76,12 +79,9 @@ class UsersController < ApplicationController
   def search
     @users = User.search(params[:search])
   end
-
   private
 
   def user_params
-
     params.require(:user).permit(:username, :email,:password, :current_city)
-
   end
 end
