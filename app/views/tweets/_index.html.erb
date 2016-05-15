@@ -1,5 +1,5 @@
-<h1>Index of Tweets</h1>
-
+<hr>
+<h1 class="tweetsIndex">Index of Tweets</h1>
 <% @tweets.each do |tweet| %>
   <div class="blog-post">
     <h3> <%= link_to tweet.title, tweet_path(tweet) %> </h3>

@@ -1,5 +1,5 @@
 
-<p>Your search result:</p>
+<strong><p class="searchInput">Your search result:</p></strong>
 <% @users.each do |user| %>
-  <%= link_to user.username, "/users/#{user.id}" %><br>
+  <%= link_to user.username, "/users/#{user.id}", class: "searchInputUser" %><br>
 <% end %>

@@ -1,0 +1,13 @@
+.searchInput{
+  display: block;
+  width: 25%;
+  margin: auto;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+.searchInputUser{
+  display: block;
+  width: 25%;
+  margin: auto;
+  margin-bottom: 5px;
+}
