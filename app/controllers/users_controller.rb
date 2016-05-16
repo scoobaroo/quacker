@@ -2,8 +2,12 @@ class UsersController < ApplicationController
   before_action :logged_in?, only: [:edit, :destroy]
 
   def index
-    @user = User.new
-    @users= User.all.order(created_at: :desc)
+    if params[:search]
+      @users = User.search(params[:search])
+    else
+      @users= User.all.order(created_at: :desc)
+    end
+
     if current_user
       @following = current_user.following
     else
@@ -76,9 +80,6 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
-  def search
-    @users = User.search(params[:search])
-  end
   private
 
   def user_params

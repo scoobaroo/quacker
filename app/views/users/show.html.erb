@@ -17,7 +17,7 @@
 
   <div class="medium-3 column", id="search-bar">
     <p>
-    <%= form_tag user_search_path, method: 'get' do %>
+    <%= form_tag users_path, method: 'get' do %>
     <%= text_field_tag :search, params[:search], placeholder:"Find other users", class: "findUserInput" %>
     <%= submit_tag "Search", class:"button radius", class: "findUserInputButton" %>
     </p>
