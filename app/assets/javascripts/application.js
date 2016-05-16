@@ -13,4 +13,5 @@ Turbolinks.enableProgressBar();
 
 $(window).mouseover(function() {
   $(".flash").delay(2000).fadeOut(300);
+  console.log(gon.cityname);
 });

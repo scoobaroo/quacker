@@ -10,11 +10,10 @@
       <ul class="menu">
         <!-- <li> <%= link_to "Tweets Index", tweets_path %></li> -->
         <% if !current_user %>
-            <li class="menu-duck"><%= link_to image_tag("noun_329011_cc.svg", class:"duck"), root_path %></li>
+          <li class="menu-text"><%= link_to image_tag("noun_151982_cc.png", class:"duck"), root_path %></li>
           <li class="sign-in"><%= link_to "Sign In", login_path %></li>
         <% else %>
-            <li class="menu-duck"><%= link_to image_tag("noun_329011_cc.svg", class:"duck"), current_user %></li>
-
+          <li class="menu-text"><%= link_to image_tag("noun_151982_cc.png", class:"duck"), current_user %></li>
           <li><%=link_to "Profile", user_path(current_user) %></li>
           <li><%=link_to "Logout", logout_path(current_user)%></li>
         <% end %>
