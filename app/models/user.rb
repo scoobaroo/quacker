@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  # extend FriendlyId
+  # friendly_id :username, use: :slugged
+
   has_secure_password
   def self.confirm(params)
     @user = User.find_by({username: params[:username]})
@@ -35,4 +38,13 @@ class User < ActiveRecord::Base
   def liked?(tweet)
     self.liked? tweet
   end
+
+  def slug
+    username.downcase.gsub(" ", "-")
+  end
+
+  def to_param
+    "#{id}-#{slug}"
+  end
+
 end

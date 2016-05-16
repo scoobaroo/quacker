@@ -7,3 +7,9 @@
 .callout{
   border: 0;
 }
+.pagination a{
+  display: inline;;
+}
+.pagination{
+  text-align: center;
+}
