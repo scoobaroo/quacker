@@ -14,16 +14,34 @@
   <div style='width: 800px;'>
     <div id="map" style='width: 800px; height: 400px;'></div>
   </div>
-  <%= csrf_meta_tags %>
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <!-- <li> <%= link_to "Tweets Index", tweets_path %></li> -->
+        <% if !current_user %>
+          <li class="menu-text"><%= link_to image_tag("noun_153623_cc.svg", class:"duck"), root_path %></li>
+          <li class="sign-in"><%= link_to "Sign In", login_path %></li>
+        <% else %>
+          <li class="menu-text"><%= link_to image_tag("noun_153623_cc.svg", class:"duck"), current_user %></li>
+          <li><%=link_to "Profile", user_path(current_user) %></li>
+          <li><%=link_to "Logout", logout_path(current_user)%></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="flash">
+    <% flash.each do |name, msg| %>
+      <p>
+        <small class="alert alert-info"> <%= name.capitalize %>: <%= msg %> </small>
+      </p>
+    <% end %>
+  </div>
+
+  <%= yield %>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-<script>
-    // var handler = Gmaps.build('Google')
-    // handler.buildMap({internal:{id:'multi_markers'}, provider: {zoom:2, center: {lat: -34, lng: 151}}});
-    // markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    // console.log("Markers", markers);
-    // console.log(<%=@hash%>);
-    // console.log(<%=raw @hash.to_json %>);
-</script>
-<%= yield %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

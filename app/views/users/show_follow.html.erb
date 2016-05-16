@@ -1,20 +1,21 @@
-<% provide(:title, @title) %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <%= @user %>
       <h1><%= @user.username %></h1>
-      <span><%= link_to "view my profile", @user %></span>
-      <span><b>Tweets:</b> <%= @user.tweets.count %></span>
     </section>
     <section class="stats">
       <% if @users.any? %>
         <div class="user_avatars">
+          <p>You are following <%= @users.count %> users: </p>
           <% @users.each do |user| %>
-          Following:  <%= link_to user.username, user %>
+            <%= link_to user.username, user %>
+            Tweet count: <%= user.tweets.count %> </br>
           <% end %>
-          <% @followers.each do |f| %>
-          Followers: <%= link_to f.username, f %>
+          <% if @followers.any? %>
+            <p>You have <%= @followers.count %>Followers: </p>
+            <% @followers.each do |f| %>
+              <%= link_to f.username, f %>
+            <% end %>
           <% end %>
         </div>
       <% end %>

@@ -1,3 +1,4 @@
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -55,48 +56,11 @@ function getTweetsSuccess(tweets) {
   }
 }
 
+$(window).mouseover(function() {
+  $(".flash").delay(2000).fadeOut(300);
+});
 
-  // var marker = [];
-  // for(i=0; i<tweets.length;i++){
-  //   var lat=tweets[i].latitude;
-  //   console.log('rla',lat);
-  //   var long=tweets[i].longitude;
-  //   console.log('rlo',long);
-  //   console.log('map', map);
-  //   new google.maps.Marker({
-  //     position: new google.maps.LatLng(lat,long),
-  //     map: map,
-  //     title: 'Hello !'
-  //   });
-  //   }
-  // }
-
-    // function createSidebarLi(tweet){
-    //   return ("<li><a>" + tweet.title + tweet.body+"</a></li>");
-    // }
-    // function bindLiToMarker($li, marker){
-    //   $li.on('click', function(){
-    //     handler.getMap().setZoom(14);
-    //     marker.setMap(handler.getMap()); //because clusterer removes map property from marker
-    //     marker.panTo();
-    //     google.maps.event.trigger(marker.getServiceObject(), 'click');
-    //   });
-    // }
-    // function createSidebar(marker){
-    //   _.each(marker, function(json){
-    //     var $li = $( createSidebarLi(json) );
-    //     $li.appendTo('#sidebar_container');
-    //     bindLiToMarker($li, json.marker);
-    //   });
-    // }
-    // _.each(marker, function(json, index){
-    //   json.marker = marker[index];
-    // });
-    // createSidebar(marker);
-
-
-    // { lat: 43, lng: 3.5},
-    // { lat: 45, lng: 4},
-    // { lat: 47, lng: 3.5},
-    // { lat: 49, lng: 4},
-    // { lat: 51, lng: 3.5}
+$("#signup").click(function () {
+    $('.duck-sound')[0].currentTime = 0;
+    return $('.duck-sound')[0].play();
+});
