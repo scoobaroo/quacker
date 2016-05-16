@@ -9,8 +9,8 @@
       <% if current_user.id == @user.id %>
         <%= link_to "Edit Profile", edit_user_path(@user) %><br>
       <% end %>
-      <%= button_to "Followers", users_path, method: 'get', class:"button radius" %>
-      <%= button_to "Following", users_path, method: 'get', class:"button radius" %><br>
+      <%= button_to "Followers", followers_user_path(@user), method: 'get', class:"button radius" %>
+      <%= button_to "Following", following_user_path(@user), method: 'get', class:"button radius" %><br>
     </p>
   </div>
 </div>
