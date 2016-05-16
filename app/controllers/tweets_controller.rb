@@ -15,6 +15,7 @@ class TweetsController < ApplicationController
           render :index
         end
       }
+    end
   end
 
   def new
@@ -34,10 +35,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments
     @following = current_user.following
-<<<<<<< HEAD
-=======
     @user = current_user
->>>>>>> d6a1d770bd57f336b75226e7bda3d945bff1d669
     render :show
   end
 

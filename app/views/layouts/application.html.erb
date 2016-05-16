@@ -11,9 +11,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   </head>
 <body>
-  <div style='width: 800px;'>
-    <div id="map" style='width: 800px; height: 400px;'></div>
-  </div>
+
   <div class="top-bar">
     <div class="top-bar-left">
       <ul class="menu">
@@ -28,6 +26,9 @@
         <% end %>
       </ul>
     </div>
+  </div>
+  <div style='width: 1200;'>
+    <div id="map" style='width: 600px; height: 400px;'></div>
   </div>
   <div class="flash">
     <% flash.each do |name, msg| %>

@@ -6,7 +6,7 @@
       <strong>Current City:</strong> <%= @user.current_city %>
       <div class="medium-8">
     <strong>Member since: </strong><%= @user.created_at.strftime("%m/%d/%Y") %><br>
-      <% if current_user.id == @user.id %>
+      <% if current_user == @user %>
         <%= link_to "Edit Profile", edit_user_path(@user) %><br>
       <% end %>
       <div class="followers-following">
@@ -21,18 +21,18 @@
   </div>
 </div>
 
-  <div class="medium-3 column", id="search-bar">
-    <p>
-    <%= form_tag users_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:search], placeholder:"Find other users", class: "textfield" %>
-    <%= submit_tag "Search", class:"button radius", class: "button radius" %>
-    </p>
-    <% end %>
-    <p> Or browse current users <%= link_to "Users", users_path %></p>
-  </div>
+<div class="medium-3 column", id="search-bar">
+  <p>
+  <%= form_tag users_path, method: 'get' do %>
+  <%= text_field_tag :search, params[:search], placeholder:"Find other users", class: "textfield" %>
+  <%= submit_tag "Search", class:"button radius", class: "button radius" %>
+  </p>
+  <% end %>
+  <p> Or browse current users <%= link_to "Users", users_path %></p>
+</div>
 
 
 
 <div class="tweets">
-  <%= render "tweets/index" %>
+<%= render "tweets/index" %>
 </div>
