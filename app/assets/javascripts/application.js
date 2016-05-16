@@ -13,5 +13,9 @@ Turbolinks.enableProgressBar();
 
 $(window).mouseover(function() {
   $(".flash").delay(2000).fadeOut(300);
-  console.log(gon.cityname);
+});
+
+$("#signup").click(function () {
+    $('.duck-sound')[0].currentTime = 0;
+    return $('.duck-sound')[0].play();
 });

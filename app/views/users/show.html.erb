@@ -9,8 +9,14 @@
       <% if current_user.id == @user.id %>
         <%= link_to "Edit Profile", edit_user_path(@user) %><br>
       <% end %>
-      <%= button_to "Followers", followers_user_path(@user), method: 'get', class:"button radius" %>
-      <%= button_to "Following", following_user_path(@user), method: 'get', class:"button radius" %><br>
+      <div class="followers-following">
+        <div class="followers">
+          <strong>Followers</strong><br><%= link_to @user.followers.length, followers_user_path(@user), method: 'get' %>
+        </div>
+        <div class="following">
+          <strong>Following</strong><br><%= link_to @user.following.length, following_user_path(@user), method: 'get' %><br>
+        </div>
+      </div>
     </p>
   </div>
 </div>
@@ -18,8 +24,8 @@
   <div class="medium-3 column", id="search-bar">
     <p>
     <%= form_tag users_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:search], placeholder:"Find other users", class: "findUserInput" %>
-    <%= submit_tag "Search", class:"button radius", class: "findUserInputButton" %>
+    <%= text_field_tag :search, params[:search], placeholder:"Find other users", class: "textfield" %>
+    <%= submit_tag "Search", class:"button radius", class: "button radius" %>
     </p>
     <% end %>
     <p> Or browse current users <%= link_to "Users", users_path %></p>
