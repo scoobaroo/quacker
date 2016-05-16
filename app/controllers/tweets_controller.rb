@@ -2,13 +2,17 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
-    if current_user
-      @following = current_user.following
-    else
-      render :index
-    end
     respond_to do |format|
       format.json { render :json=> @tweets }
+      format.html {
+        if current_user
+          @tweets=Tweet.all
+          @following = current_user.following
+        else
+          @tweets=Tweet.all
+          render :index
+        end
+      }
     end
   end
 
@@ -20,8 +24,9 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.create(tweet_params)
     @user = current_user
-    @user.tweets << @tweet
-    redirect_to user_path(@user)
+    # @user.tweets << @tweet
+    # redirect_to user_path(@user)
+    redirect_to tweets_path
   end
 
   def show

@@ -24,4 +24,8 @@
 <% end %>
 <% end %>
 <% end %>
+<% @tweets.each do |t| %>
+<%=t.body%> <%= t.title %>
+<%= link_to "Edit Tweet", edit_tweet_path(t) %>
+<% end %>
 <%= link_to "Post New Tweet", new_tweet_path %>

@@ -27,25 +27,23 @@ $.ajax({
   url: "/tweets",
   success: getTweetsSuccess
 });
-function getTweetsSucess(tweets) {
-  handler.buildMap({internal:{id:'multi_markers'}}, function(){
+function getTweetsSuccess(tweets) {
+  console.log(tweets);
+  var marker = [];
+  handler.buildMap({internal:{id:'multi_markers'}, provider: {zoom:2, center: {lat: -34, lng: 151}}}, function(){
     for(i=0; i<tweets.length;i++){
-    var markers = handler.addMarker(
+    marker[i] = handler.addMarker(
       {lat:tweets[i].latitude, lng:tweets[i].longitude}
     );
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
     }
   }
-);}
-handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
-  var markers = handler.addMarkers([
-    { lat: 43, lng: 3.5},
-    { lat: 45, lng: 4},
-    { lat: 47, lng: 3.5},
-    { lat: 49, lng: 4},
-    { lat: 51, lng: 3.5}
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
+);
+handler.bounds.extendWith(marker);
+handler.fitMapToBounds();
+}
+
+//     { lat: 43, lng: 3.5},
+//     { lat: 45, lng: 4},
+//     { lat: 47, lng: 3.5},
+//     { lat: 49, lng: 4},
+//     { lat: 51, lng: 3.5}
