@@ -31,7 +31,24 @@
   <p> Or browse current users <%= link_to "Users", users_path %></p>
 </div>
 
+  <%  if current_user %>
+    <% relationship = Relationship.find_by(follower_id: current_user.id, followed_id: @user.id) %>
+  <% end %>
 
+  <% if relationship %>
+    <%= form_tag(relationship_path(relationship.id), method: :delete) do %>
+      <%= submit_tag "Unfollow", class:"button radius" %>
+    <% end %>
+  <% end %>
+
+  <% if current_user!=@user && !relationship%>
+    <% if current_user %>
+      <%= form_tag(current_user.active_relationships.build, method: :post) do %>
+        <div><%= hidden_field_tag :followed_id, @user.id %></div>
+      <%= submit_tag "Follow", class:"button radius" %>
+      <% end %>
+    <% end %>
+  <% end %>
 
 <div class="tweets">
 <%= render "tweets/index" %>
