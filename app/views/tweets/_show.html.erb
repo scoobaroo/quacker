@@ -1,8 +1,10 @@
+<hr>
 <div class="blog-post">
   <% if @tweet %>
     <% tweet = @tweet %>
   <% end %>
   <h3><strong><%= link_to tweet.title, tweet_path(tweet) %></strong></h3>
+      <li><%= link_to tweet.user.username, user_path(tweet.user)%></li>
   <img class="thumbnail" src="http://placehold.it/100x100">
   <p><%= tweet.body %></p>
   <div class="callout">
@@ -11,17 +13,20 @@
       <li><%= link_to "Like", like_tweet_path(tweet), class: 'vote', method: :patch, id: tweet.id %></li>
       <li>Likes: <%= tweet.get_likes.size %>
       <li>DisLikes: <%= tweet.get_dislikes.size %>
-      <li>Author: <%=link_to tweet.user.username, user_path(tweet.user)%></li>
+        <br>
       <li>Latitude: <%= tweet.latitude %></li>
       <li>Longitude: <%= tweet.longitude %></li>
-      <li> <%= link_to "Comment!", new_comment_path(tweet) %></li>
+        <br>
     </ul>
 
     <ul class="menu simple">
+      <br>
       <li><h5>Comments:</h5></li>
+        <li> <%= link_to "Comment!", new_comment_path(tweet) %></li>
       <% tweet.comments.each do |comment| %>
-        <li><br><%= link_to comment.body, comments_path %> Author: <%= link_to comment.user.username, user_path(comment.user) %></li>
         <%= link_to "Edit Comment", tweet_comment_path(tweet, comment) %>
+        <br>
+        <li><%= link_to comment.body, comments_path %></li>
       <% end %><br>
     </ul>
 
