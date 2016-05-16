@@ -2,7 +2,7 @@
 <h1 class="tweetsIndex">Index of Tweets</h1>
 
 <% if current_user != @user %>
-  <%= @user.tweets.each do |tweet| %>
+  <% @user.tweets.paginate(:page => params[:page], per_page: 10).each do |tweet| %>
     <%= render 'tweets/show', tweet: tweet %>
   <% end %>
 <% end %>

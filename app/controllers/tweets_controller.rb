@@ -2,10 +2,9 @@ class TweetsController < ApplicationController
 
   def index
     if current_user
-      @following = current_user.following
-      @tweets = Tweets.all
+      # @following = current_user.following
     else
-      @tweets = Tweets.all
+      # @tweets = Tweets.all
       render :index
     end
   end
