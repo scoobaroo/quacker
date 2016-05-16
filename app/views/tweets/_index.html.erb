@@ -6,7 +6,7 @@
 <div class="blog-post">
 <h3><%= link_to tweet.title, tweet_path(tweet) %></h3>
 <img class="thumbnail" src="http://placehold.it/100x100">
-<p><%= tweet.body  %></p>
+<p><%= tweet.body %></p>
 <%= like_tweet_path(current_user,tweet) %>
 <div class="callout">
 <ul class="menu simple">
