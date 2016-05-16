@@ -3,15 +3,17 @@
   <div class="medium-8 column", id="user-profile-info">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyH3_kvHIBbYJdSO8URLXAwgwBgaxBQZVCB7-Fq_qk3FZRd3I4JA"/>
     <strong><h5>Hello <%= @user.username %> </h5></strong>
-      <strong>Current City:</strong> <%= @user.current_city %>
-      <div class="medium-8">
+    <%= cl_image_tag (@user.avatar.url) %>
+    <strong>Current City:</strong> <%= @user.current_city %>
+    <div class="medium-8">
     <strong>Member since: </strong><%= @user.created_at.strftime("%m/%d/%Y") %><br>
       <% if current_user.id == @user.id %>
-        <%= link_to "Edit Profile", edit_user_path(@user) %><br>
+      <%= link_to "Edit Profile", edit_user_path(@user) %><br>
       <% end %>
       <%= button_to "Followers", followers_user_path(@user), method: 'get', class:"button radius" %>
       <%= button_to "Following", following_user_path(@user), method: 'get', class:"button radius" %><br>
-    </p>
+      </p>
+    </div>
   </div>
 </div>
 

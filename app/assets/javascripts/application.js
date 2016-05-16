@@ -4,6 +4,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require cloudinary
 //= require app
 //= require what-input
 //= require_tree .
