@@ -1,4 +1,7 @@
 <div class="blog-post">
+  <% if @tweet %>
+    <% tweet = @tweet %>
+  <% end %>
   <h3><strong><%= link_to tweet.title, tweet_path(tweet) %></strong></h3>
   <img class="thumbnail" src="http://placehold.it/100x100">
   <p><%= tweet.body %></p>

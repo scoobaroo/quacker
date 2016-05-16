@@ -28,7 +28,7 @@ class TweetsController < ApplicationController
     @comments = @tweet.comments
     @following = current_user.following
     @user = current_user
-    render 'users/show'
+    render :show
   end
 
   def update
