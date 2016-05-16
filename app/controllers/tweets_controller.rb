@@ -5,8 +5,9 @@ class TweetsController < ApplicationController
       @following = current_user.following
       @user = current_user
       render 'users/show'
+
     else
-      @tweets = Tweets.all
+      # @tweets = Tweets.all
       render :index
     end
   end

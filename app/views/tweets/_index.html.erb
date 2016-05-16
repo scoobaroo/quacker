@@ -1,8 +1,8 @@
 <hr>
 
 <% if current_user != @user %>
-  <% @user.tweets.each do |tweet| %>
-    <%= render 'tweets/show', tweet: tweet %>
+  <% @tweets.each do |tweet| %>
+  <%= render 'tweets/show', tweet: tweet %>
   <% end %>
 <% end %>
 
@@ -17,3 +17,4 @@
 <% if current_user.id == @user.id %>
   <%= link_to "Post New Tweet", new_tweet_path(current_user) %>
 <% end %>
+<%= will_paginate @tweets %>
