@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
+    @tweets = @user.tweets.paginate(:page => params[:page], per_page: 10)
     @following = @user.following
     if @user == nil
       redirect_to root_path
