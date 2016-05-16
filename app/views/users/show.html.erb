@@ -7,7 +7,7 @@
       <div class="medium-8">
     <strong>Member since: </strong><%= @user.created_at.strftime("%m/%d/%Y") %><br>
       <% if current_user.id == @user.id %>
-        <%= link_to "Edit Profile", edit_user_path %><br>
+        <%= link_to "Edit Profile", edit_user_path(@user) %><br>
       <% end %>
       <%= button_to "Followers", users_path, method: 'get', class:"button radius" %>
       <%= button_to "Following", users_path, method: 'get', class:"button radius" %><br>
