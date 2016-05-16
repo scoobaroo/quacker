@@ -35,4 +35,5 @@ class User < ActiveRecord::Base
   def liked?(tweet)
     self.liked? tweet
   end
+
 end
