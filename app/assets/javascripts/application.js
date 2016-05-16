@@ -41,10 +41,6 @@ function getTweetsSuccess(tweets) {
 
   tweets.forEach(function(tweet) {
     if (tweet.latitude && tweet.longitude) {
-    //   var infowindow = new google.maps.InfoWindow({
-    //     content: "<h3><a>" + tweet.title + tweet.body+"</a></h3>"
-    //   });
-
       var marker = new google.maps.Marker({
         position: { lat: tweet.latitude, lng: tweet.longitude },
         map: map,
