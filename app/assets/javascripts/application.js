@@ -36,23 +36,26 @@ function getTweetsSuccess(tweets) {
     center: myLatLng
   });
 
-  for (var i = 0; i < tweets.length; i++) {
-    if (tweets[i].latitude && tweets[i].longitude) {
-      var infowindow = new google.maps.InfoWindow({
-        content: "<h3><a>" + tweets[i].title + tweets[i].body+"</a></h3>"
-      });
+  var infowindow = new google.maps.InfoWindow();
+
+  tweets.forEach(function(tweet) {
+    if (tweet.latitude && tweet.longitude) {
+    //   var infowindow = new google.maps.InfoWindow({
+    //     content: "<h3><a>" + tweet.title + tweet.body+"</a></h3>"
+    //   });
 
       var marker = new google.maps.Marker({
-        position: { lat: tweets[i].latitude, lng: tweets[i].longitude },
+        position: { lat: tweet.latitude, lng: tweet.longitude },
         map: map,
-        title: tweets[i].title
+        title: tweet.title
       });
 
       marker.addListener('click', function() {
+          infowindow.setContent("<h3><a>" + tweet.title + tweet.body+"</a></h3>");
         infowindow.open(map, marker);
       });
     }
-  }
+  });
 }
 
 
