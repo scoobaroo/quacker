@@ -7,7 +7,7 @@ Ilter = User.create({
         current_city: "San Francisco"
   })
 
-20.times do |n|
+10.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
@@ -19,7 +19,7 @@ end
 
 # Microposts
 users = User.order(:created_at).take(6)
-25.times do
+5.times do
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.tweets.create!(title: content, body: content) }
 end
@@ -27,8 +27,8 @@ end
 # Following relationships
 users = User.all
 user  = users.first
-following = users[2..20]
-followers = users[3..15]
+following = users[2..10]
+followers = users[3..7]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 

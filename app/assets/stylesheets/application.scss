@@ -5,7 +5,13 @@
  *= require_self
  *= require_tree .
  */
-
+ #map img {
+   max-width: none;
+ }
+ #map label {
+   width: auto; display:inline;
+ }
+ 
  $menu-color: rgba(52,65,70,1);
  $duck-color: rgba(241, 196, 15,1);
 

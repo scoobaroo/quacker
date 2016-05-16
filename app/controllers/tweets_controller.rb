@@ -7,6 +7,9 @@ class TweetsController < ApplicationController
     else
       render :index
     end
+    respond_to do |format|
+      format.json { render :json=> @tweets }
+    end
   end
 
   def new
@@ -26,27 +29,29 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments
     @following = current_user.following
-    redirect_to user_path(@user)
+    render :show
   end
 
   def update
     @tweet = Tweet.find(params[:id])
-    if current_user == @tweet.user
-      @tweet.update(tweet_params)
-    else
-      flash[:notice]="Not your tweet!"
-    end
+    # if current_user == @tweet.user
+    #   @tweet.update(tweet_params)
+    # else
+    #   flash[:notice]="Not your tweet!"
+    # end
+    @tweet.update(tweet_params)
     redirect_to tweets_path
   end
 
   def edit
     @tweet = Tweet.find(params[:id])
-    if current_user == @tweet.user
-      render :edit
-    else
-      flash[:notice]="Not your tweet!"
-      redirect_to tweets_path
-    end
+    # if current_user == @tweet.user
+    #   render :edit
+    # else
+    #   flash[:notice]="Not your tweet!"
+    #   redirect_to tweets_path
+    # end
+    render :edit
   end
 
   def destroy
@@ -79,7 +84,7 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:title, :body, :latitude,:longitude)
+    params.require(:tweet).permit(:title, :body, :latitude, :longitude)
   end
 
 end
