@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
     @user = current_user
     @tweet = Tweet.find(params[:id])
     @comment = @tweet.comments.create(comment_params)
-    @tweet.comments << @comment
     @user.comments << @comment
     redirect_to user_path(@user)
   end

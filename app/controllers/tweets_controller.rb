@@ -2,25 +2,14 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
-    # @hash = Gmaps4rails.build_markers(@tweets) do |tweet, marker|
-    #   marker.lat tweet.latitude
-    #   marker.lng tweet.longitude
-    #   marker.infowindow  "<b>#{tweet.body}#{tweet.title}</b>"
-    #   marker.picture({
-    #                 :url => "http://www.fancyicons.com/free-icons/219/ree/png/256/yellow_ducky_256.png",
-    #                 :width   => 32,
-    #                 :height  => 32
-    #                })
-    #   marker.title   "#{tweet.title}"
-    #   marker.json({ :id => tweet.id })
-    # end
-
     respond_to do |format|
       format.json { render :json=> @tweets }
       format.html {
         if current_user
-          @tweets=Tweet.all
           @following = current_user.following
+          @user = current_user
+          @tweets=Tweet.all
+          render 'users/show'
         else
           @tweets=Tweet.all
           render :index
@@ -43,10 +32,10 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweets = Tweet.all
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments
     @following = current_user.following
+    @user = current_user
     render :show
   end
 

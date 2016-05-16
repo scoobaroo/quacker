@@ -14,7 +14,13 @@
  
  $menu-color: rgba(52,65,70,1);
  $duck-color: rgba(241, 196, 15,1);
-
+.flash {
+  background-color: rgba(52,65,70,0.9);
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  color: $duck-color;
+}
  .top-bar, .top-bar ul {
    background-color: $menu-color;
    color: $duck-color;
@@ -56,4 +62,10 @@
 
 .duck {
   width: 30px;
+}
+.textfield{
+  border-color: $menu-color;
+}
+.textfield:hover{
+  border-color: $duck-color;
 }

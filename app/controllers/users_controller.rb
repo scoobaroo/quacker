@@ -2,8 +2,12 @@ class UsersController < ApplicationController
   before_action :logged_in?, only: [:edit, :destroy]
 
   def index
-    @user = User.new
-    @users= User.all.order(created_at: :desc)
+    if params[:search]
+      @users = User.search(params[:search])
+    else
+      @users= User.all.order(created_at: :desc)
+    end
+
     if current_user
       @following = current_user.following
     else
@@ -13,10 +17,23 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    @following = @user.following
-    if @user == nil
+    if @user != nil
+      @tweets = @user.tweets.paginate(:page => params[:page], per_page: 10)
+      @following = @user.following
+    else
       redirect_to root_path
       flash[:notice] = "user not found"
+    end
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      @user.following << @user
+      login(@user)
+      redirect_to @user
+    else
+      render :root
     end
   end
 
@@ -51,16 +68,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      login(@user)
-      redirect_to @user
-    else
-      render :root
-    end
-  end
-
   def following
     @title = "Following"
     @user  = User.find(params[:id])
@@ -76,9 +83,6 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
-  def search
-    @users = User.search(params[:search])
-  end
   private
 
   def user_params
