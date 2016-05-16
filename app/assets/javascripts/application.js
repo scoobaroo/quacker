@@ -48,7 +48,7 @@ function getTweetsSuccess(tweets) {
       });
 
       marker.addListener('click', function() {
-          infowindow.setContent("<h3><a>" + tweet.title + tweet.body+"</a></h3>");
+        infowindow.setContent("<h3><a>" +"Title:"+ tweet.title+ "<br>"+ "Body:"+tweet.body+"</a></h3>");
         infowindow.open(map, marker);
       });
     }
