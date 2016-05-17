@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-
+ skip_before_action :verify_authenticity_token
   def index
     @tweets = Tweet.all
     respond_to do |format|
@@ -41,23 +41,23 @@ class TweetsController < ApplicationController
 
   def update
     @tweet = Tweet.find(params[:id])
-    # if current_user == @tweet.user
-    #   @tweet.update(tweet_params)
-    # else
-    #   flash[:notice]="Not your tweet!"
-    # end
+    if current_user == @tweet.user
+      @tweet.update(tweet_params)
+    else
+      flash[:notice]="Not your tweet!"
+    end
     @tweet.update(tweet_params)
     redirect_to tweets_path
   end
 
   def edit
     @tweet = Tweet.find(params[:id])
-    # if current_user == @tweet.user
-    #   render :edit
-    # else
-    #   flash[:notice]="Not your tweet!"
-    #   redirect_to tweets_path
-    # end
+    if current_user == @tweet.user
+      render :edit
+    else
+      flash[:notice]="Not your tweet!"
+      redirect_to tweets_path
+    end
     render :edit
   end
 
@@ -74,7 +74,6 @@ class TweetsController < ApplicationController
   def like
     @tweet = Tweet.find(params[:id])
     @tweet.liked_by current_user
-
     if request.xhr?
       head :ok
     else
