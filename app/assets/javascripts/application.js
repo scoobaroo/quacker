@@ -4,6 +4,10 @@
 //= require jquery_ujs
 //= require foundation.min.js
 //= require foundation
+//= foundation.toggler.js
+//= foundation.core.js
+//= foundation.util.motion.js
+//= foundation.util.triggers.js
 //= require turbolinks
 //= require cloudinary
 //= require app
@@ -17,7 +21,6 @@ $(document).on('ready', function(e){
   $(window).mouseover(function() {
     $(".flash").delay(2000).fadeOut(300);
   });
-
   $("#signup").click(function () {
       $('.duck-sound')[0].currentTime = 0;
       return $('.duck-sound')[0].play();
@@ -28,7 +31,7 @@ $(document).on('ready', function(e){
    url: "/tweets",
    success: getTweetsSuccess
   });
-
+  $('#map').foundation('toggle');
   function getTweetsSuccess(tweets) {
      this.tweets = tweets;
      var myLatLng = {lat: 37.78, lng: -122.44};
