@@ -1,21 +1,31 @@
-<% @users.each do |user|%>
- <%= link_to user.username, user_path(user) %><br>
-  <%  if current_user %>
-    <% relationship = Relationship.find_by(follower_id: current_user.id, followed_id: user.id) %>
-  <% end %>
-
-  <% if relationship %>
-    <%= form_tag(relationship_path(relationship.id), method: :delete) do %>
-      <%= submit_tag "Unfollow", class:"button radius" %>
+<div class="row">
+  <% @users.each do |user| %>
+  <div class="small-9 large-9 columns">
+    <div class="photo-tag">
+      <%=  link_to cl_image_tag(user.avatar.url), user_path(user),
+      :width => 100, :height => 100, :crop => :fill, :gravity => :face %><br>
+    </div>
+   <%= link_to user.username, user_path(user) %><br>
+   <%= user.current_city %>
+    <%  if current_user %>
+      <% relationship = Relationship.find_by(follower_id: current_user.id, followed_id: user.id) %>
     <% end %>
-  <% end %>
 
-  <% if current_user!=user && !relationship%>
-    <% if current_user %>
-      <%= form_tag(current_user.active_relationships.build, method: :post) do %>
-        <div><%= hidden_field_tag :followed_id, user.id %></div>
-      <%= submit_tag "Follow", class:"button radius" %>
+    <% if relationship %>
+      <%= form_tag(relationship_path(relationship.id), method: :delete) do %>
+        <%= submit_tag "Unfollow", class:"button radius" %>
       <% end %>
     <% end %>
+
+    <% if current_user!=user && !relationship%>
+      <% if current_user %>
+        <%= form_tag(current_user.active_relationships.build, method: :post) do %>
+          <div><%= hidden_field_tag :followed_id, user.id %></div>
+        <%= submit_tag "Follow", class:"button radius" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
   <% end %>
-<% end %>
+
+</div>

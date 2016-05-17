@@ -56,10 +56,29 @@
 
 .duck {
   width: 30px;
+  margin: 0px;
 }
 .textfield{
   border-color: $menu-color;
 }
 .textfield:hover{
   border-color: $duck-color;
+}
+.row {
+  margin-left: 20%auto;
+  margin-right: 20%auto;
+}
+.columns {
+  flex: auto;
+  width: 300px;
+  height: 200px;
+
+}
+.photo-tag {
+  width: 100px;
+  height: 100px;
+}
+html.turbolinks-progress-bar::before {
+  background-color: $duck-color !important;
+  height: 7px !important;
 }
