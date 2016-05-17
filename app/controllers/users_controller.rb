@@ -47,6 +47,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by_id(params[:id])
+    Cloudinary::Uploader.upload(params[:user][:avatar])
+
     if current_user.id == @user.id
       @user.update_attributes(user_params)
       flash[:notice] = "Profile updated."
@@ -86,6 +88,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email,:password, :current_city)
+    params.require(:user).permit(:username, :email,:password, :current_city, :avatar)
   end
+
 end

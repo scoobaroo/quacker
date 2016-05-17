@@ -37,7 +37,9 @@ gem 'gravatar'
 gem 'acts_as_votable', '~> 0.10.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'carrierwave'
 
+gem 'cloudinary'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
