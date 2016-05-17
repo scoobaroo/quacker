@@ -18,6 +18,16 @@
 }
 .tweetCommentButton{
   margin-left: 48%;
+  margin-top: 1%;
+}
+.editTweetCommentButton{
+  margin-left: 48%;
+  margin-top: 3%;
+}
+#comment_body{
+  max-width: 26%;
+  margin-left: 37%;
+  margin-bottom: -2%
 }
 #tweet_body{
   max-width: 26%;
