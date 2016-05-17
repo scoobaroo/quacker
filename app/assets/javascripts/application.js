@@ -18,6 +18,7 @@
 //= require underscore
 //= require gmaps/google
 //= require turbolinks
+//= require cloudinary
 //= require app
 //= require what-input
 //= require_tree .
