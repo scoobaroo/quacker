@@ -47,8 +47,9 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by_id(params[:id])
-    Cloudinary::Uploader.upload(params[:user][:avatar])
-
+    unless params[:user] != nil
+      Cloudinary::Uploader.upload(params[:user])
+    end
     if current_user.id == @user.id
       @user.update_attributes(user_params)
       flash[:notice] = "Profile updated."
