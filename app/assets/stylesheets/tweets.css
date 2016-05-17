@@ -13,3 +13,46 @@
 .pagination{
   text-align: center;
 }
+.tweetCommentTitle{
+  text-align: center;
+}
+.tweetCommentButton{
+  margin-left: 48%;
+  margin-top: 1%;
+}
+.editTweetCommentButton{
+  margin-left: 48%;
+  margin-top: 3%;
+}
+#comment_body{
+  max-width: 26%;
+  margin-left: 37%;
+  margin-bottom: -2%
+}
+#tweet_body{
+  max-width: 26%;
+  margin-left: 37%;
+  margin-bottom: -2%
+}
+.newTweetTitle{
+  text-align: center;
+}
+.postTweetSubmitButton{
+  margin-left: 41%;
+  width: 17%;
+}
+#tweet_title{
+  margin-left: 37%;
+  margin-bottom: 1%;
+  width: 26%;
+}
+#tweet_longitude{
+  margin-left: 37%;
+  margin-bottom: 0%;
+  width: 26%;
+}
+#tweet_latitude{
+  margin-left: 37%;
+  margin-bottom: 1%;
+  width: 26%;
+}
