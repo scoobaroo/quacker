@@ -29,17 +29,7 @@
 </div>
 
 
-<div class="row">
-  <div class="medium-3 column", id="search-bar">
-    <p>
-    <%= form_tag users_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:search], placeholder:"Find other users", class: "textfield" %>
-    <%= submit_tag "Search", class:"button radius", class: "button radius" %>
-    </p>
-    <% end %>
-    <p> Or browse current users <%= link_to "Users", users_path %></p>
-  </div>
-</div>
+
 
 <div class="row">
   <div class="tweets">

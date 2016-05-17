@@ -23,7 +23,23 @@
           <li><%=link_to "Profile", user_path(current_user) %></li>
           <li><%=link_to "Logout", logout_path(current_user)%></li>
         <% end %>
+        <li class = "menu-text">
+          <a data-toggle="map">Toggle Map</a>
+
+          <div class="large-offset-3 large-6 large-offset-3 columns" id="map" data-toggler data-animate="fade-in fade-out" style='width: 700px; height: 400px;'>
+          </div>
+        </li>
       </ul>
+    </div>
+      <div class = "top-bar-right">
+        <ul class="menu">
+          <%= form_tag users_path, method: 'get' do %>
+          <%= text_field_tag :search, params[:search], placeholder:"Find other users", class: "textfield" %>
+          <%= submit_tag "Search", class:"button radius", class: "button warning" %>
+          <% end %>
+          Or browse current users <strong><%= link_to "Users", users_path %></strong>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="flash">
