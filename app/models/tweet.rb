@@ -8,4 +8,6 @@ class Tweet < ActiveRecord::Base
   acts_as_votable
 
   include SimpleHashtag::Hashtaggable
+  hashtaggable_attribute :body
+
 end
