@@ -56,9 +56,9 @@
   margin-bottom: 1%;
   width: 26%;
 }
-.signup-panel {
+.tweet-panel {
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1.5px solid rgba(52,65,70,0.5);;
     padding: 15px;
     margin-top: 30px;
 }
@@ -67,5 +67,23 @@
   margin: 0 25% 0;
 }
 .new-tweet {
+  float: right;
+}
+.tweet-body {
+  /*border-style: dotted;*/
+  width: 300px;
+  margin-left: 30%;
+  margin-top: -20%;
+  min-height: 150px;
+}
+.tweet-user {
+  /*border-style: dotted;*/
+  width: 150px;
+}
+.blog-post {
+  min-height: 250px;
+  width: 600px;
+}
+.like-dislike{
   float: right;
 }
