@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
 
+  get "/homepage/about_us", to: "homepage#about_us", as: "about_us"
+
   patch "tweets/:id/like", to: "tweets#like", as: "like_tweet"
   patch "tweets/:id/dislike", to: "tweets#dislike", as:"dislike_tweet"
 

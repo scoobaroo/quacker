@@ -1,10 +1,27 @@
-<div class="row sign-in-form" id="content">
-  <div class="medium-3 medium-offset-4 columns">
-    <h5>Have an account?</h5>
-    <%= form_for @user, url: "/sessions", method: "post" do |f| %>
-    <%= f.text_field :username, placeholder:"Username" %><br>
-    <%= f.password_field :password, placeholder:"Password" %><br>
-    <%= f.submit "Sign In", class:"button radius"%>
-    <% end %>
+
+<div class="row">
+   <div class="large-6 columns">
+     <div class="signup-panel">
+       <p class="welcome"> Welcome to Qucaker!</p>
+        <%= form_for @user, url: "/sessions", method: "post" do |f| %>
+          <div class="row collapse">
+           <div class="small-2  columns">
+             <span class="prefix"><i class="fi-torso-female"></i></span>
+           </div>
+           <div class="small-10  columns">
+            <%= f.text_field :username, placeholder:"Username" %><br>
+           </div>
+          </div>
+         <div class="row collapse">
+           <div class="small-2 columns ">
+             <span class="prefix"><i class="fi-lock"></i></span>
+           </div>
+           <div class="small-10 columns ">
+            <%= f.password_field :password, placeholder:"Password" %><br>
+           </div>
+         </div>
+        <%= f.submit "Sign In", class:"button radius sign-in-button"%>
+        <% end %>
+     </div>
+   </div>
   </div>
-</div>
