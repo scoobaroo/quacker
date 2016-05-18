@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @comment = @tweet.comments.create(comment_params)
     @user.comments << @comment
     flash[:notice]="Comment Successfully Created!"
-    redirect_to user_path(@user)
+    redirect_to @tweet
   end
 
   def show
@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
     else
       flash[:notice]=@comment.error.full_messages
     end
-    redirect_to tweet_path(@tweet)
+    redirect_to @tweet
   end
 
   def edit

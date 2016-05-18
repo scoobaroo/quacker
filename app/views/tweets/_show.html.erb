@@ -12,8 +12,8 @@
   <p><%= link_to tweet.body, tweet_path(tweet)%></p>
   <div class="callout">
     <ul class="menu simple">
-      <li><%= link_to "Dislike", dislike_tweet_path(tweet), class: 'vote button alert', method: :patch, id: tweet.id %></li>
-      <li><%= link_to "Like", like_tweet_path(tweet), class: 'vote button info', method: :patch, id: tweet.id %></li>
+        <li><%= link_to "Dislike", dislike_tweet_path(tweet), class: 'vote button alert', method: :patch, id: tweet.id %></li>
+        <li><%= link_to "Like", like_tweet_path(tweet), class: 'vote button info', method: :patch, id: tweet.id %></li>
       <li>Likes: <%= tweet.get_likes.size %>
       <li>DisLikes: <%= tweet.get_dislikes.size %>
         <br>

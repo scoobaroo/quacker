@@ -56,7 +56,7 @@ class TweetsController < ApplicationController
     else
       flash[:notice]=@tweet.errors.full_messages
     end
-    redirect_to @user
+    redirect_to @tweet
   end
 
   def edit

@@ -20,8 +20,9 @@ end
 # Microposts
 users = User.order(:created_at).take(6)
 5.times do
- content = Faker::Lorem.sentence(5)
- users.each { |user| user.tweets.create!(title: content, body: content, latitude: rand(-90..90), longitude: rand(-180..180)) }
+ content = Faker::Lorem.paragraph(1)
+ title = Faker::Lorem.sentence(4)
+ users.each { |user| user.tweets.create!(title: title, body: content, latitude: rand(-90..90), longitude: rand(-180..180)) }
 end
 
 # Following relationships
