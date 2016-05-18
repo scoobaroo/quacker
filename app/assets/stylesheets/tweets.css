@@ -66,3 +66,6 @@
   width: 50%;
   left: +50%auto;
 }
+.new-tweet {
+  float: right;
+}
