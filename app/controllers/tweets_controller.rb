@@ -36,7 +36,7 @@ class TweetsController < ApplicationController
       redirect_to user_path(@user)
     else
       redirect_to new_tweet_path
-      flash[:notice] = "Sending tweet failed"
+      flash[:notice] = @tweet.errors.full_messages
     end
   end
 
@@ -53,7 +53,7 @@ class TweetsController < ApplicationController
     if current_user == @tweet.user
       @tweet.update(tweet_params)
     else
-      flash[:notice]="Not your tweet!"
+      flash[:notice]=@tweet.errors.full_messages
     end
     redirect_to tweets_path
   end
@@ -63,7 +63,7 @@ class TweetsController < ApplicationController
     if current_user == @tweet.user
       render :edit
     else
-      flash[:notice]="Not your tweet!"
+      flash[:notice]=@tweet.errors.full_messages
       redirect_to tweets_path
     end
   end
@@ -73,7 +73,7 @@ class TweetsController < ApplicationController
     if current_user == @tweet.user
       @tweet.destroy
     else
-      flash[:notice]= "Not Your tweet!"
+      flash[:notice]= @tweet.error.full_messages
     end
     redirect_to tweets_path
   end
