@@ -82,7 +82,6 @@ class TweetsController < ApplicationController
   def like
     @tweet = Tweet.find(params[:id])
     @tweet.liked_by current_user
-
     if request.xhr?
       head :ok
     else
