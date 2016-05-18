@@ -35,6 +35,6 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/sessions", to: "sessions#create", as: "sessions"
   get "/logout", to: "sessions#destroy"
-# this line should redirect any unknown lines to
+  # this line should redirect any unknown lines to
   get '*path' => redirect('/users/:id')
 end
