@@ -17,6 +17,8 @@ gem 'will_paginate', '~> 3.1.0'
 
 # gem 'friendly_id', '~> 5.1.0'
 
+#simple hashtag gem
+gem 'simple_hashtag'
 # simple forms
 # gem 'simple_form'
 # Use jquery as the JavaScript library
