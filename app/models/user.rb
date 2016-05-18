@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
   mount_uploader :avatar, AvatarUploader
-
+  before_create :create_fallback_image
+  
   has_many :tweets
   has_many :comments
   has_many :active_relationships, class_name:  "Relationship",
@@ -30,6 +31,10 @@ class User < ActiveRecord::Base
       all
     end
   end
+
+  def create_fallback_image
+       self.create_avatar
+   end
 
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
