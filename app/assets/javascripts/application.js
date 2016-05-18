@@ -17,7 +17,13 @@
 
 Turbolinks.enableProgressBar();
 
+
 $(document).on('ready', function(e){
+
+  $("#tweet-owner-selector").on("click", function(){
+    $(".tweet-delete-edit").css("display", "block");
+  });
+
   $(window).mouseover(function() {
     $(".flash").delay(2000).fadeOut(300);
   });
@@ -57,4 +63,4 @@ $(document).on('ready', function(e){
        }
      });
   }
-})
+});

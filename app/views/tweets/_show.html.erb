@@ -26,24 +26,31 @@
             </ul>
             <ul class="menu simple">
               <br>
-              <% if tweet.comments != nil %>
-                <li><h5>Comments:</h5></li>
-              <% end %>
-                <li> <%= link_to "Comment!", new_comment_path(tweet), class:"button radius warning" %></li><br>
+                <%= button_to "Comment", new_comment_path(tweet), class:"button radius", method: "get" %><br>
                 <% tweet.comments.each do |comment| %>
-                  <li><%= comment.body %></li>
-                  <% if comment.user==current_user %>
-                   <%= link_to "Edit ", tweet_comment_path(tweet,comment), class:"button primary" %><%= link_to " Delete", destroy_comment_path(tweet ,comment), class:"button alert", method: :delete %>
+                <% if comment == nil %>
+                <% else %>
+                  <div class="comments-body">
+                    <hr>
+                      <p><%= link_to comment.user.username, user_path(comment.user) %>:</p>
+                    <p><%= comment.body %></p> <br>
+                    <% if comment.user == current_user %>
+                     <%= link_to "Edit comment", tweet_comment_path(tweet,comment), class:"" %>
+                     <%= link_to "Delete comment", destroy_comment_path(tweet ,comment), class:"delete-but", method: :delete %>
+                  <% end %>
                 <% end %>
+              </div>
                 <br>
               <% end %><br>
+              <% if tweet.user == current_user %>
+                <div class="tweet-delete-edit">
+                  <%= link_to "Edit tweet", edit_tweet_path(tweet), class:"" %>
+                  <%= link_to "Delete tweet", destroy_tweet_path(tweet), method: :delete, class:"delete-but" %>
+                </div>
+              <% end %>
             </ul>
         </div>
       </div>
-      <% if tweet.user == current_user %>
-        <%= link_to "Edit", edit_tweet_path(tweet), class:"button primary" %>
-        <%= link_to "Delete", destroy_tweet_path(tweet), method: :delete, class:"button alert" %>
-      <% end %>
     </div>
   </div>
 </div>
