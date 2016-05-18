@@ -29,6 +29,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:comment_id])
     if current_user == @comment.user
       @comment.update(comment_params)
+      flash[:notice]="Comment Succesfully Updated!"
     else
       flash[:notice]="Not your comment!"
     end
@@ -51,6 +52,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:comment_id])
     if current_user == @comment.user
       @comment.destroy
+      flash[:notice]="Comment Deleted!"
     else
       flash[:notice]="Not your tweet!"
     end
