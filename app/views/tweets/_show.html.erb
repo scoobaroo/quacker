@@ -29,7 +29,7 @@
       <% tweet.comments.each do |comment| %>
         <li><%= comment.body %></li>
         <% if comment.user==current_user %>
-          <li><%= link_to "Edit Comment", tweet_comment_path(tweet,comment) %></li>
+          <li><%= link_to "Edit Comment", tweet_comment_path(tweet,comment) %><%= link_to "Delete Comment", destroy_comment_path(tweet ,comment), method: :delete %></li>
         <% end %>
         <br>
       <% end %><br>

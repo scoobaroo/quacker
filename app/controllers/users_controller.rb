@@ -31,9 +31,11 @@ class UsersController < ApplicationController
     if @user.save
       @user.following << @user
       login(@user)
+      flash[:notice]="Account Succesfully Created!"
       redirect_to @user
     else
-      render :root
+      flash[:notice]=@user.errors.full_messages
+      redirect_to '/'
     end
   end
 
@@ -51,11 +53,11 @@ class UsersController < ApplicationController
       Cloudinary::Uploader.upload(user_params)
     end
     if current_user.id == @user.id
-      @user.update(user_params)
+      @user.update_attributes(user_params)
       flash[:notice] = "Profile updated."
       redirect_to @user
     else
-      flash[:notice] = "What do you think you are doing? Do you think this is a game?"
+      flash[:notice] = @user.errors.full_messages
       redirect_to user_path
     end
   end

@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
       @comment.update(comment_params)
       flash[:notice]="Comment Succesfully Updated!"
     else
-      flash[:notice]="Not your comment!"
+      flash[:notice]=@comment.error.full_messages
     end
     redirect_to tweet_path(@tweet)
   end
@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
     if current_user == @comment.user
       render :edit
     else
-      flash[:notice]="Not your comment!"
+      flash[:notice]=@comment.error.full_messages
       redirect_to tweet_path(@tweet)
     end
   end
@@ -53,10 +53,10 @@ class CommentsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @comment = Comment.find(params[:comment_id])
     if current_user == @comment.user
-      @comment.destroy
+      @tweet.comments.destroy(@comment)
       flash[:notice]="Comment Deleted!"
     else
-      flash[:notice]="Not your tweet!"
+      flash[:notice]=@comment.error.full_messages
     end
     redirect_to tweet_path(@tweet)
   end
