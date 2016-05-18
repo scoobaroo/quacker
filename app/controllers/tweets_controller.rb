@@ -8,10 +8,10 @@ class TweetsController < ApplicationController
         if current_user
          @following = current_user.following
          @user = current_user
-         @tweets = Tweet.all.order(created_at: :desc)
+         @tweets = Tweet.all.paginate(:page => params[:page], per_page: 10).order(created_at: :desc)
          render 'users/show'
         else
-         @tweets = Tweet.all.order(created_at: :desc)
+         @tweets = Tweet.all.paginate(:page => params[:page], per_page: 10).order(created_at: :desc)
          render :index
         end
       }
@@ -49,13 +49,14 @@ class TweetsController < ApplicationController
   end
 
   def update
+    @user = current_user
     @tweet = Tweet.find(params[:id])
     if current_user == @tweet.user
       @tweet.update(tweet_params)
     else
       flash[:notice]=@tweet.errors.full_messages
     end
-    redirect_to tweets_path
+    redirect_to @user
   end
 
   def edit
