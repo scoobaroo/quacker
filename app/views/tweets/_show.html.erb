@@ -3,14 +3,13 @@
   <% if @tweet %>
     <% tweet = @tweet %>
   <% end %>
-  <h3><strong><%= link_to tweet.title, tweet_path(tweet) %></strong></h3>
   <li><%= link_to tweet.user.username, user_path(tweet.user)%></li>
   <% if @user.avatar.url == nil %>
   <img class="thumbnail" src="http://placehold.it/100x100">
  <% else %>
   <%= cl_image_tag (@user.avatar.url), :width => 100, :height => 100, :crop => :fill, :gravity => :face %>
   <% end %>
-  <p><%= tweet.body %></p>
+  <p><%= link_to tweet.body, tweet_path(tweet)%></p>
   <div class="callout">
     <ul class="menu simple">
       <li><%= link_to "Dislike", dislike_tweet_path(tweet), class: 'vote', method: :patch, id: tweet.id %></li>

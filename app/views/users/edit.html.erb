@@ -1,16 +1,17 @@
-<div class="">
+<div class="editUserInfo">
   <%= form_for @user do |f| %>
   <%= f.label :username %>
-  <%= f.text_field :username %> <br>
+  <%= f.text_field :username %>
   <%= f.label "E-mail" %>
-  <%= f.text_field :email %> <br>
+  <%= f.text_field :email %>
   <%= f.label :password %>
-  <%= f.password_field :password %> <br>
+  <%= f.password_field :password %>
   <%= f.label "Current City" %>
-  <%= f.text_field :current_city %> <br>
+  <%= f.text_field :current_city %> 
   <%= f.file_field :avatar %>
-  <%= f.submit "Apply changes", class: "button radius"%>
+  <%= f.submit "Save Changes", class: "button radius"%>
   <% end %>
-</div>
+
 
 <%= button_to "Delete Profile", user_path, :method => :delete, class: "button radius delete-button", data: { confirm: "Are you sure? There is no coming back!"} %>
+</div>
