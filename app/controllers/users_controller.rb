@@ -47,8 +47,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by_id(params[:id])
-    unless params[:user] != nil
-      Cloudinary::Uploader.upload(params[:user])
+    unless user_params != nil
+      Cloudinary::Uploader.upload(user_params)
     end
     if current_user.id == @user.id
       @user.update_attributes(user_params)
