@@ -12,8 +12,8 @@
   <p><%= link_to tweet.body, tweet_path(tweet)%></p>
   <div class="callout">
     <ul class="menu simple">
-      <li><%= link_to "Dislike", dislike_tweet_path(tweet), class: 'vote', method: :patch, id: tweet.id %></li>
-      <li><%= link_to "Like", like_tweet_path(tweet), class: 'vote', method: :patch, id: tweet.id %></li>
+      <li><%= link_to "Dislike", dislike_tweet_path(tweet), class: 'vote button alert', method: :patch, id: tweet.id %></li>
+      <li><%= link_to "Like", like_tweet_path(tweet), class: 'vote button info', method: :patch, id: tweet.id %></li>
       <li>Likes: <%= tweet.get_likes.size %>
       <li>DisLikes: <%= tweet.get_dislikes.size %>
         <br>
@@ -28,15 +28,14 @@
       <% tweet.comments.each do |comment| %>
         <li><%= comment.body %></li>
         <% if comment.user==current_user %>
-          <li><%= link_to "Edit Comment", tweet_comment_path(tweet,comment) %><%= link_to "Delete Comment", destroy_comment_path(tweet ,comment), method: :delete %></li>
+          <%= link_to "Edit ", tweet_comment_path(tweet,comment), class:"button primary" %><%= link_to " Delete", destroy_comment_path(tweet ,comment), class:"button alert", method: :delete %>
         <% end %>
         <br>
       <% end %><br>
     </ul>
-
   </div>
 </div>
 <% if tweet.user == current_user %>
-  <%= link_to "Edit", edit_tweet_path(tweet) %>
-  <%= link_to "Delete", destroy_tweet_path(tweet), method: :delete %>
+  <%= link_to "Edit", edit_tweet_path(tweet), class:"button primary" %>
+  <%= link_to "Delete", destroy_tweet_path(tweet), method: :delete, class:"button alert" %>
 <% end %>
