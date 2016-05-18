@@ -14,5 +14,11 @@ RSpec.describe User, type: :model do
     it { should validate_length_of(:password).is_at_least(6) }
     it { should validate_length_of(:password).is_at_most(20) }
     it { should have_many(:tweets) }
+    it { should have_many(:comments) }
+    it { should have_many(:following) }
+
+    it { expect(user).to_not allow_value("DUMMY").for(:email) }
+    it { expect(user).to_not allow_value("foo@bar").for(:email) }
+    it { expect(user).to allow_value("foo@bar.com").for(:email) }
   end
 end

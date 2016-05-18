@@ -6,9 +6,8 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: (/\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/)
   validates :password, presence: true, length: { in: 6..20 }
-
 
   has_many :tweets
   has_many :comments
