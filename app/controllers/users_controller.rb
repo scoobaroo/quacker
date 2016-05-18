@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       @following = @user.following
     else
       redirect_to root_path
-      flash[:notice] = "user not found"
+      flash[:notice] = "User Not Found"
     end
   end
 
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
       Cloudinary::Uploader.upload(user_params)
     end
     if current_user.id == @user.id
-      @user.update_attributes(user_params)
+      @user.update(user_params)
       flash[:notice] = "Profile updated."
       redirect_to @user
     else
