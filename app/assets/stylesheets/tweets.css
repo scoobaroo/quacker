@@ -1,9 +1,4 @@
-.tweetsIndex{
-  text-align: center;
-}
-.blog-post{
-  text-align: center;
-}
+
 .callout{
   border: 0;
 }
@@ -34,9 +29,6 @@
   margin-left: 37%;
   margin-bottom: -2%
 }
-.newTweetTitle{
-  text-align: center;
-}
 .postTweetSubmitButton{
   margin-left: 41%;
   width: 17%;
@@ -60,4 +52,54 @@
   margin-left: 37%;
   margin-bottom: 1%;
   width: 26%;
+}
+.tweet-panel {
+    border-radius: 5px;
+    border: 1.5px solid rgba(52,65,70,0.5);
+    padding: 15px;
+    margin-top: 30px;
+    overflow: hidden;
+}
+.tweetrow {
+  width: 50%;
+  margin: 0 25% 0;
+}
+.new-tweet {
+  float: right;
+}
+.tweet-body {
+  /*border-style: dotted;*/
+  width: 300px;
+  margin-left: 30%;
+  margin-top: -20%;
+  min-height: 150px;
+}
+.comments-body {
+  padding: 15px;
+  margin-top: 30px;
+  width: 300px;
+  overflow: auto;
+  word-wrap: break-word;
+
+}
+.tweet-user {
+  /*border-style: dotted;*/
+  width: 150px;
+}
+.blog-post {
+  min-height: 250px;
+  width: 800px;
+  margin-top: 50px;
+}
+.like-dislike{
+  display: inline;
+}
+
+.edit-delete-button {
+  margin-left: 80%;
+  float: right;
+  position: absolute;
+}
+.delete-but {
+  color: red;
 }
