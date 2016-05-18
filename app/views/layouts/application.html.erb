@@ -16,24 +16,24 @@
   <div class="top-bar">
     <div class="top-bar-left">
       <ul class="menu">
-        <!-- <li> <%= link_to "Tweets Index", tweets_path %></li> -->
         <% if !current_user %>
           <li class="menu-text"><%= link_to image_tag("noun_153623_cc.svg", class:"duck"), root_path %></li>
           <li class="sign-in"><%= link_to "Sign In", login_path %></li>
+          <li> <%= link_to "About Us", about_us_path %></li>
         <% else %>
           <li class="menu-text"><%= link_to image_tag("noun_153623_cc.svg", class:"duck"), current_user %></li>
           <li><%=link_to "Profile", user_path(current_user) %></li>
           <li><%=link_to "Logout", logout_path(current_user)%></li>
         <% end %>
-        <li class = "menu-text">
+        <!-- <li class = "menu-text">
           <a data-toggle="map">Toggle Map</a>
 
           <div class="large-offset-3 large-6 large-offset-3 columns" id="map" data-toggler data-animate="fade-in fade-out" style='width: 700px; height: 400px;'>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
-      <div class = "top-bar-right">
+      <!-- <div class = "top-bar-right">
         <ul class="menu">
           <%= form_tag users_path, method: 'get' do %>
           <%= text_field_tag :search, params[:search], placeholder:"Find other users", class: "textfield" %>
@@ -41,7 +41,7 @@
           <% end %>
           Or browse current users <strong><%= link_to "Users", users_path %></strong>
         </ul>
-      </div>
+      </div> -->
     </div>
   </div>
   <div class="flash">
