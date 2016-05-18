@@ -5,7 +5,9 @@
  *= require_self
  *= require_tree .
  */
-
+#map{
+  color: black;
+}
  $menu-color: rgba(52,65,70,1);
  $duck-color: rgba(241, 196, 15,1);
 .flash {
