@@ -27,11 +27,6 @@ ActiveRecord::Schema.define(version: 20160517235711) do
   add_index "comments", ["tweet_id"], name: "index_comments_on_tweet_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
-  create_table "infoboxbuilders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
