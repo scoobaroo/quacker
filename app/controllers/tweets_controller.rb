@@ -26,11 +26,12 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.create(tweet_params)
     @user = current_user
+    if result = request.location
+      @tweet.longitude=result.longitude
+      @tweet.latitude=result.latitude
+      @tweet.save
+    end
     @user.tweets << @tweet
-    result = request.location
-    @tweet.longitude=result.longitude
-    @tweet.latitude=result.latitude
-    @tweet.save
     redirect_to user_path(@user)
   end
 
