@@ -12,7 +12,7 @@
             Tweet count: <%= user.tweets.count %> </br>
           <% end %>
           <% if @followers.any? %>
-            <p>You have <%= @followers.count %>Followers: </p>
+            <p>You have <%= @followers.count %> Followers: </p>
             <% @followers.each do |f| %>
               <%= link_to f.username, f %>
             <% end %>

@@ -1,20 +1,20 @@
 <hr>
+<% if current_user.id == @user.id %>
+  <%= link_to "Post New Tweet", new_tweet_path(current_user) %>
+<% end %>
 
 <% if current_user != @user %>
-  <% @tweets.each do |tweet| %>
+  <% @tweets.order(created_at: :desc).each do |tweet| %>
   <%= render 'tweets/show', tweet: tweet %>
   <% end %>
 <% end %>
 
 <% if @following %>
-  <% @following.each do |f| %>
-    <% f.tweets.each do |tweet| %>
+  <% @following.order(created_at: :desc).each do |f| %>
+    <% f.tweets.order(created_at: :desc).each do |tweet| %>
       <%= render 'tweets/show', tweet: tweet %>
     <% end %>
   <% end %>
 <% end %>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "Post New Tweet", new_tweet_path(current_user) %>
-<% end %>
 <%= will_paginate @tweets %>

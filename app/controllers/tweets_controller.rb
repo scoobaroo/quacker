@@ -1,22 +1,22 @@
 class TweetsController < ApplicationController
 
   def index
-     @tweets = Tweet.all
-     respond_to do |format|
-       format.json { render :json=> @tweets }
-       format.html {
-         if current_user
-           @following = current_user.following
-           @user = current_user
-           @tweets = Tweet.all
-           render 'users/show'
-         else
-           @tweets = Tweet.all
-           render :index
-         end
-       }
-     end
-   end
+    @tweets = Tweet.all.order(created_at: :desc)
+    respond_to do |format|
+      format.json { render :json=> @tweets }
+      format.html {
+        if current_user
+         @following = current_user.following
+         @user = current_user
+         @tweets = Tweet.all.order(created_at: :desc)
+         render 'users/show'
+        else
+         @tweets = Tweet.all.order(created_at: :desc)
+         render :index
+        end
+      }
+    end
+  end
 
   def new
     @tweet = Tweet.new
@@ -27,6 +27,10 @@ class TweetsController < ApplicationController
     @tweet = Tweet.create(tweet_params)
     @user = current_user
     @user.tweets << @tweet
+    result = request.location
+    @tweet.longitude=result.longitude
+    @tweet.latitude=result.latitude
+    @tweet.save
     redirect_to user_path(@user)
   end
 
@@ -88,7 +92,7 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:title, :body, :latitude,:longitude)
+    params.require(:tweet).permit(:title, :body, :latitude,:longitude, :full_street_address)
   end
 
 end

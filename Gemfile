@@ -33,7 +33,7 @@ gem 'faker'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'gravatar'
-
+gem 'geocoder'
 gem 'acts_as_votable', '~> 0.10.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
