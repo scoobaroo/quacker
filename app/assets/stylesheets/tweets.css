@@ -64,7 +64,7 @@
 }
 .tweetrow {
   width: 50%;
-  left: +50%auto;
+  margin: 0 25% 0;
 }
 .new-tweet {
   float: right;
