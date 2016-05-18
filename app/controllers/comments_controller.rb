@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   def index
+    @tweet=Tweet.find(params[:id])
     @comments = Comment.all.order(created_at: :desc)
     render :index
   end
@@ -16,6 +17,7 @@ class CommentsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @comment = @tweet.comments.create(comment_params)
     @user.comments << @comment
+    flash[:notice]="Comment Successfully Created!"
     redirect_to user_path(@user)
   end
 
@@ -29,6 +31,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:comment_id])
     if current_user == @comment.user
       @comment.update(comment_params)
+      flash[:notice]="Comment Succesfully Updated!"
     else
       flash[:notice]="Not your comment!"
     end
@@ -51,6 +54,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:comment_id])
     if current_user == @comment.user
       @comment.destroy
+      flash[:notice]="Comment Deleted!"
     else
       flash[:notice]="Not your tweet!"
     end
