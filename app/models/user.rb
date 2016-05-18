@@ -3,9 +3,12 @@ class User < ActiveRecord::Base
   # friendly_id :username, use: :slugged
 
   has_secure_password
-
-
   mount_uploader :avatar, AvatarUploader
+
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, length: { in: 6..20 }
+
 
   has_many :tweets
   has_many :comments
@@ -31,7 +34,6 @@ class User < ActiveRecord::Base
       all
     end
   end
-
 
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
