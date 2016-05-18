@@ -1,6 +1,6 @@
 <hr>
 <% if current_user.id == @user.id %>
-  <%= link_to "Post New Tweet", new_tweet_path(current_user) %>
+  <%= link_to "Post New Tweet", new_tweet_path(current_user), class:"button success" %>
 <% end %>
 
 <% if current_user != @user %>
