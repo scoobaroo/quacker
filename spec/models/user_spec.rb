@@ -16,6 +16,7 @@ RSpec.describe User, type: :model do
     it { should have_many(:tweets) }
     it { should have_many(:comments) }
     it { should have_many(:following) }
+    it { should have_many(:followers) }
 
     it { expect(user).to_not allow_value("DUMMY").for(:email) }
     it { expect(user).to_not allow_value("foo@bar").for(:email) }
