@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   def index
+    @tweet=Tweet.find(params[:id])
     @comments = Comment.all.order(created_at: :desc)
     render :index
   end
@@ -16,6 +17,7 @@ class CommentsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @comment = @tweet.comments.create(comment_params)
     @user.comments << @comment
+    flash[:notice]="Comment Successfully Created!"
     redirect_to user_path(@user)
   end
 
