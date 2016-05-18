@@ -6,6 +6,8 @@
  *= require_tree .
  */
 
+@import 'foundation-icons';
+
  $menu-color: rgba(52,65,70,1);
  $duck-color: rgba(241, 196, 15,1);
 .flash {
@@ -40,10 +42,6 @@
    background-color: #c0392b;
  }
 
- .sign-up-form {
-   width: 100%;
-   margin-top: 10%;
- }
 
 .topbar-section {
   background-color: rgba(52,65,70,1);
@@ -71,16 +69,6 @@
 }
 .textfield:hover{
   border-color: $duck-color;
-}
-.row {
-  margin-left: 20%auto;
-  margin-right: 20%auto;
-}
-.columns {
-  flex: auto;
-  width: 300px;
-  height: 200px;
-
 }
 .photo-tag {
   width: 100px;

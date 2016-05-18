@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'will_paginate', '~> 3.1.0'
 
+gem 'foundation-icons-sass-rails'
 # gem 'friendly_id', '~> 5.1.0'
 
 # simple forms
