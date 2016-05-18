@@ -25,13 +25,13 @@
     <ul class="menu simple">
       <br>
       <li><h5>Comments:</h5></li>
-        <li> <%= link_to "Comment!", new_comment_path(tweet) %></li>
+        <li> <%= link_to "Comment!", new_comment_path(tweet), class:"button radius warning" %></li><br>
       <% tweet.comments.each do |comment| %>
+        <li><%= comment.body %></li>
         <% if comment.user==current_user %>
-          <%= link_to "Edit Comment", tweet_comment_path(tweet,comment) %>
+          <li><%= link_to "Edit Comment", tweet_comment_path(tweet,comment) %></li>
         <% end %>
         <br>
-        <li><%= comment.body %></li>
       <% end %><br>
     </ul>
 
