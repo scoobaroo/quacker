@@ -38,7 +38,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'carrierwave'
-
+gem 'friendly_id', '~> 5.1.0'
 gem 'cloudinary'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

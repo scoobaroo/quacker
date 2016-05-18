@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user = User.friendly.find(params[:id])
     if @user != nil
       @tweets = @user.tweets.paginate(:page => params[:page], per_page: 10)
       @following = @user.following
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_id(params[:id])
+    @user = User.friendly.find(params[:id])
     unless current_user.id == @user.id
       flash[:notice] = "You may not edit other user accounts"
       redirect_to "/"
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_id(params[:id])
+    @user = User.friendly.find(params[:id])
     unless user_params != nil
       Cloudinary::Uploader.upload(user_params)
     end
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_id(params[:id])
+    @user = User.friendly.find(params[:id])
     if current_user.id == @user.id
     @user.destroy
     redirect_to "/"
@@ -75,7 +75,7 @@ class UsersController < ApplicationController
 
   def following
     @title = "Following"
-    @user  = User.find(params[:id])
+    @user  = User.friendly.find(params[:id])
     @followers = @user.followers
     @users = @user.following
     render 'show_follow'
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
 
   def followers
     @title = "Followers"
-    @user  = User.find(params[:id])
+    @user  = User.friendly.find(params[:id])
     @followers = @user.followers
     render 'show_followers'
   end

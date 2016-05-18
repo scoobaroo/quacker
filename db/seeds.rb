@@ -8,10 +8,9 @@ Ilter = User.create({
  })
 
 10.times do |n|
- name  = Faker::Name.name
  email = "example-#{n+1}@railstutorial.org"
  password = "password"
- User.create!(username: name,
+ User.create!(username: Faker::Internet.user_name,
              email: email,
              password: password,
              current_city: Faker::Address.city)
