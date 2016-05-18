@@ -1,5 +1,9 @@
-<div class="row sign-up-form" id="content">
-  <div class="medium-3 medium-offset-7 columns">
+<div class="row sign-up-form" id="homepage-content">
+  <div class="medium-3 medium-push-1 columns" id="new-duck">
+    <div id="landing-page-name">Quacker.</div>
+    <%=image_tag("noun_394466_cc.svg", class: "new-duck-image")%>
+  </div>
+  <div class="medium-3 medium-pull-2 columns">
       <%= form_for @user, url: users_path do |f| %>
         <%= f.label :username %>
         <%= f.text_field :username , placeholder:"Username", class: "textfield" %> <br>
@@ -11,10 +15,8 @@
         <p> Already have an account? <%= link_to "Sign In", login_path %></p>
       <% end %>
   </div>
-</div>
-<div>
-  <%=image_tag("noun_394466_cc.svg", alt: "newDuck", class: "newDuck")%>
-</div>
+</div><br>
+<hr><br>
 
 
 <div class="row">
@@ -49,6 +51,7 @@
         </div>
       </div>
     </div>
+    <hr>
 
     <footer class="footer">
       <div class="row">
@@ -57,7 +60,6 @@
           <p class="links">
             <a href="#">Home</a>
             <a href="#">About Developers</a>
-            <a href="#">Contact</a>
             <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Contact</a>
           </p>
           <p class="copywrite">Copywrite Quacker © 2016</p>

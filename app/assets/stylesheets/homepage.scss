@@ -2,8 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/********************home page style***************************/
-
+#homepage-content {
+  margin-top: 10%;
+}
+#landing-page-name {
+  margin-left: 31%;
+  margin-top: -17%;
+  font-family: 'Bangers', cursive;
+  font-size: 80px;
+  color: rgba(52,65,70,1);
+}
+.new-duck-image {
+  max-width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
 .profile-card {
   padding: 1rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
