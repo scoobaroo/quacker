@@ -1,7 +1,7 @@
 
 .medium-3.column#search-bar{
   margin-left: 70%;
-  margin-top: -341px;
+  margin-top: -185px;
   margin-bottom: 110px;
 }
 .medium-8.column#user-profile-info{
@@ -9,4 +9,8 @@
 }
 img{
   margin-top: 20px;
+}
+.editUserInfo{
+  max-width: 26%;
+  margin-left: 37%;
 }

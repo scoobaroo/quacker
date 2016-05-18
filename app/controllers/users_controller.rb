@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to @user
     else
-      render :root
+      render "/"
     end
   end
 

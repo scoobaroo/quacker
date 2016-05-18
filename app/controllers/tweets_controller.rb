@@ -32,7 +32,12 @@ class TweetsController < ApplicationController
       @tweet.save
     end
     @user.tweets << @tweet
-    redirect_to user_path(@user)
+    if @tweet.save
+      redirect_to user_path(@user)
+    else
+      redirect_to new_tweet_path
+      flash[:notice] = "Sending tweet failed"
+    end
   end
 
   def show
