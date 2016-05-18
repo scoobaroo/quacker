@@ -1,0 +1,18 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1><%= @user.username %></h1>
+    </section>
+    <section class="stats">
+      <div class="user_avatars">
+        <% if @followers.any? %>
+          <p>You have <%= @followers.count %> Followers: </p>
+          <% @followers.each do |f| %>
+            <strong><%= link_to f.username, f %></strong>
+            Tweet count: <%= f.tweets.count %> </br>
+          <% end %>
+        <% end %>
+      </div>
+    </section>
+  </aside>
+</div>

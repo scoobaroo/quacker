@@ -4,7 +4,7 @@
       <h1><%= @user.username %></h1>
     </section>
     <section class="stats">
-      <% if @users.any? %>
+      <% if @users %>
         <div class="user_avatars">
           <p>You are following <%= @users.count %> users: </p>
           <% @users.each do |user| %>
@@ -12,13 +12,6 @@
             Tweet count: <%= user.tweets.count %> </br>
           <% end %>
           <br>
-          <% if @followers.any? %>
-            <p>You have <%= @followers.count %> Followers: </p>
-            <% @followers.each do |f| %>
-              <strong><%= link_to f.username, f %></strong>
-              Tweet count: <%= f.tweets.count %> </br>
-            <% end %>
-          <% end %>
         </div>
       <% end %>
     </section>
