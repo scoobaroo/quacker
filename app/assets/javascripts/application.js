@@ -53,7 +53,7 @@ $(document).on('ready', function(e){
          });
 
          marker.addListener('click', function() {
-         infowindow.setContent("<h4><a>" +"Title:"+ tweet.title+ "<br>"+ "Body:"+tweet.body+"</a></h4>"+tweet.created_at);
+         infowindow.setContent("<h5><a>" +"Title:"+ tweet.title+ "<br>"+ "Body:"+tweet.body+"</a></h5>"+tweet.created_at);
            infowindow.open(map, marker);
          });
        }
