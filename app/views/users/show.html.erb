@@ -7,8 +7,11 @@
     <h2><strong><%= @user.username %></strong></h2>
     <%= cl_image_tag (@user.avatar.url), :width => 100, :height => 100, :crop => :fill, :gravity => :face %><br>
     <%#if @user.current_city %>
+    <% if @user.current_city == nil || @user.current_city.length == 0 %>
+      <% else %>
       <strong>Current City:</strong><br>
       <%= @user.current_city %>
+      <% end %>
     <%# end %>
     <div class="medium-8">
     <small>Member since: <%= @user.created_at.strftime("%m/%d/%Y") %></small><br>

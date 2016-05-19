@@ -19,6 +19,10 @@ class TweetsController < ApplicationController
       }
     end
   end
+  def map
+    @tweets = Tweet.all
+    render :map
+  end
 
   def new
     @tweet = Tweet.new
