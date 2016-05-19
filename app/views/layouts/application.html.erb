@@ -20,7 +20,7 @@
           <li><%=link_to "Logout", logout_path(current_user)%></li>
         <% end %>
         <li class = "menu-text">
-          <strong><%= link_to "Tweet Map", tweets_map_path %></strong>
+          <strong><%= link_to "Tweet Map", tweets_map_path ,method: 'get' %></strong>
         </li>
       </ul>
     </div>
