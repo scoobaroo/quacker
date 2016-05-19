@@ -1,68 +1,65 @@
 <div class="row sign-up-form" id="homepage-content">
   <div class="medium-3 medium-push-1 columns" id="new-duck">
     <div id="landing-page-name">Quacker.</div>
-    <%=image_tag("noun_394466_cc.svg", class: "new-duck-image")%>
+    <%= image_tag("noun_394466_cc.svg", class: "new-duck-image") %>
   </div>
   <div class="medium-3 medium-pull-2 columns">
-      <%= form_for @user, url: users_path do |f| %>
-        <%= f.label :username %>
-        <%= f.text_field :username , placeholder:"Username", class: "textfield" %> <br>
-        <%= f.label :email %>
-        <%= f.text_field :email ,placeholder: "Email", class: "textfield"%> <br>
-        <%= f.label :password %>
-        <%= f.password_field :password , placeholder: "Password", class: "textfield" %> <br>
-        <%= f.submit "Create Account", class:"button radius", id:"signup"%>
-        <p> Already have an account? <%= link_to "Sign In", login_path %></p>
-      <% end %>
+    <%= form_for @user, url: users_path do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username , placeholder:"Username", class: "textfield" %><br>
+      <%= f.label :email %>
+      <%= f.text_field :email ,placeholder: "Email", class: "textfield" %><br>
+      <%= f.label :password %>
+      <%= f.password_field :password , placeholder: "Password", class: "textfield" %><br>
+      <%= f.submit "Create Account", class:"button radius", id:"signup"%>
+      <p> Already have an account? <%= link_to "Sign In", login_path %></p>
+    <% end %>
   </div>
 </div>
 
 <hr><br>
 
 <div class="row">
-      <div class="medium-4 columns">
-        <div class="profile-card">
-          <%= image_tag "noun_1822.svg" %>
-          <div class="profile-info">
-            <h4 class="subheader">Quacks</h4>
-            <p>In 200 characters, Quacker let's you share your thoughts and ideas.</p><br>
-            <!-- <p><strong>Used in a scentence -</strong> Yo man, Foundation for Emails is so inky. Coding emails doesn't suck anymore!</p> -->
-          </div>
-        </div>
-      </div>
-      <div class="medium-4 columns">
-        <div class="profile-card">
-          <%= image_tag "noun_256612_cc.svg" %>
-          <div class="profile-info">
-            <h4 class="subheader">Quacker Friends</h4>
-            <p>Find and connect with fellow Quackers.</p><br><br>
-            <!-- <p><strong>Used in a scentence - </strong>those tru gangstas from way back in the day that jacked ya and left nothing but you boxers and socks. Also, Biggie and Tupac were both O.G.'s</p> -->
-          </div>
-        </div>
-      </div>
-      <div class="medium-4 columns">
-        <div class="profile-card">
-          <%= image_tag "noun_172892_cc.svg" %>
-          <div class="profile-info">
-            <h4 class="subheader">Geolocation</h4>
-            <p>See where all the quacks are at. Quacker provides a visual map so you can see where the users are most active.</p>
-            <!-- <p><strong>Used in a scentence -</strong> Yo, after a couple months at the Y, I'll be a swoll Yeti.</p> -->
-          </div>
-        </div>
+  <div class="medium-4 columns">
+    <div class="profile-card">
+      <%= image_tag "noun_1822.svg" %>
+      <div class="profile-info">
+        <h4 class="subheader">Quacks</h4>
+        <p>Quacker is a free social microblogging service which let's you share your thoughts and ideas with other users around you using <strong>200 characters</strong>.</p><br>
       </div>
     </div>
-    <hr>
-
-    <footer class="footer">
-      <div class="row">
-        <div class="small-12 columns">
-          <p class="slogan">Quck, Quack, Quack</p>
-          <p class="links">
-            <a href="#">Home</a>
-            <%= link_to "About Developers", about_us_path %>
-            <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Contact</a>
-          </p>
-          <p class="copywrite">Copywrite Quacker © 2016</p>
-        </div>
+  </div>
+  <div class="medium-4 columns">
+    <div class="profile-card">
+      <%= image_tag "noun_256612_cc.svg" %>
+      <div class="profile-info">
+        <h4 class="subheader">Followers</h4>
+        <p>Quacker is about <stong>discovering</strong> interesing people and <strong>following</strong> their daily quacks broadcasts.</p><br><br>
       </div>
-    </footer>
+    </div>
+  </div>
+  <div class="medium-4 columns">
+    <div class="profile-card">
+      <%= image_tag "noun_172892_cc.svg" %>
+      <div class="profile-info">
+        <h4 class="subheader">Geolocation</h4>
+        <p>See where all the quacks are at. Quacker provides a <strong>visual map</strong> allows you to see where the users are most active.</p><br><br>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<footer class="footer">
+  <div class="row">
+    <div class="small-12 columns">
+      <p class="slogan">Quck, Quack, Quack</p>
+      <p class="links">
+        <a href="#">Home</a>
+        <%= link_to "About Developers", about_us_path %>
+        <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Contact</a>
+      </p>
+      <p class="copywrite">Copywrite Quacker © 2016</p>
+    </div>
+  </div>
+</footer>

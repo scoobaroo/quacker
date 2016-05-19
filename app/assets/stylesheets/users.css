@@ -7,7 +7,10 @@
 .medium-8.column#user-profile-info{
   margin-right: 60%;
 }*/
-
+#edit-user-info {
+  margin-top: 40px;
+  margin-left: 35%;
+}
 
 /********************sign in form style***************************/
 .signup-panel {
@@ -67,3 +70,23 @@ span.prefix, label.prefix {
   margin-left: 42%;
 }
 /********************end sign in form style***************************/
+.profile-card .button-group .button {
+  margin-top: 20px;
+}
+
+.small-12.large-4.columns{
+  max-height: 128px;
+}
+
+@media only screen and (max-width: 767px) {
+  .button {
+    display: inline-block;
+  }
+}
+
+.users-page {
+  width: 300px;
+}
+.current_city {
+  min-height: 30px;
+}

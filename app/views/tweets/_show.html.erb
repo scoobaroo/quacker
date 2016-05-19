@@ -15,7 +15,8 @@
           <% end %>
         </div>
         <div class="tweet-body">
-          <p><%=  tweet.body %></p>
+          <p><%= link_to tweet.body, tweet %></p>
+          <li>latitude: <%= tweet.latitude %> longitude <%= tweet.longitude %> </li>
         </div>
         <div class="callout">
           <div class="like-dislike">

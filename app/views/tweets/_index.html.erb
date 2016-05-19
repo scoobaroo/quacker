@@ -1,5 +1,5 @@
 <% if current_user.id == @user.id %>
-  <%= link_to "Post New Tweet", new_tweet_path(current_user), class:"button success new-tweet" %>
+  <%= link_to "Post New Quack", new_tweet_path(current_user), class:"button success new-tweet" %>
 <hr>
 <% end %>
 
@@ -18,4 +18,4 @@
 <% end %>
 
 <%= will_paginate @tweets %>
-<%= will_paginate @following %>
+<%= will_paginate @following%>
