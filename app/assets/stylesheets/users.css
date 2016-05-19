@@ -83,3 +83,10 @@ span.prefix, label.prefix {
     display: inline-block;
   }
 }
+
+.users-page {
+  width: 300px;
+}
+.current_city {
+  min-height: 30px;
+}
