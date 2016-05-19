@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
-
-    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-    <title>Quacker</title>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  </head>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+  <title>Quacker</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+</head>
 <body>
   <div class="top-bar">
     <div class="top-bar-left">
@@ -20,16 +19,7 @@
           <li><%= link_to "Logout", logout_path(current_user) %></li>
           <li><strong><%= link_to "Tweet Map", tweets_map_path %></strong></li>
         <% end %>
-    </div>
-      <!-- <div class = "top-bar-right">
-        <ul class="menu">
-          <%= form_tag users_path, method: 'get' do %>
-          <%= text_field_tag :search, params[:search], placeholder:"Find other users", class: "textfield" %>
-          <%= submit_tag "Search", class:"button radius", class: "button warning" %>
-          <% end %>
-          Or browse current <strong><%= link_to "users", users_path %></strong>
-        </ul>
-      </div> -->
+      </ul>
     </div>
   </div>
   <div class="flash">
@@ -38,7 +28,7 @@
         <small class="alert alert-info"> <%= name.capitalize %>: <%= msg %> </small>
       </p>
     <% end %>
-    </div>
+  </div>
 
   <%= yield %>
 

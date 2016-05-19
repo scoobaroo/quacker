@@ -14,7 +14,6 @@
 
  $menu-color: rgba(52,65,70,1);
  $duck-color: rgba(241, 196, 15,1);
-
 .flash {
   background-color: rgba(52,65,70,0.9);
   margin: auto;
@@ -22,7 +21,6 @@
   text-align: center;
   color: $duck-color;
 }
-
  .top-bar, .top-bar ul {
    background-color: $menu-color;
    color: $duck-color;
@@ -48,13 +46,10 @@
    background-color: #c0392b;
  }
 
+
 .topbar-section {
   background-color: rgba(52,65,70,1);
   padding: 0;
-}
-
-.top-bar-left{
-  background-color: rgba(52,65,70,1);
 }
 
 .duck {
@@ -65,20 +60,16 @@
 .quackerTitle{
   text-align: center;
 }
-
 .textfield{
   border-color: $menu-color;
 }
-
 .textfield:hover{
   border-color: $duck-color;
 }
-
 .photo-tag {
   width: 100px;
   height: 100px;
 }
-
 html.turbolinks-progress-bar::before {
   background-color: $duck-color !important;
   height: 7px !important;
