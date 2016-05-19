@@ -1,0 +1,13 @@
+class HashtagsController < ApplicationController
+
+  def index
+    @hashtags = SimpleHashtag::Hashtag.all
+  end
+
+  def show
+    @hashtag = SimpleHashtag::Hashtag.find_by_name(params[:hashtag])
+    @tweets = Tweet.where(hashtag: @hashtag)
+    @hashtagged = @hashtag.hashtaggables if @hashtag
+  end
+
+end
