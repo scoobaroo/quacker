@@ -1,40 +1,59 @@
-<hr>
-<div class="blog-post">
-  <% if @tweet %>
-    <% tweet = @tweet %>
-  <% end %>
-  <li><%= link_to tweet.user.username, user_path(tweet.user)%></li>
-  <% if @user.avatar.url == nil %>
-  <img class="thumbnail" src="http://placehold.it/100x100">
- <% else %>
-  <%= cl_image_tag (tweet.user.avatar.url), :width => 100, :height => 100, :crop => :fill, :gravity => :face %>
-  <% end %>
-  <p><%= link_to tweet.body, tweet_path(tweet)%>
-  -Written on:<%= tweet.created_at.strftime("%m/%d/%Y") %></p>
-    <ul class="menu simple">
-      <li><%= link_to "Dislike", dislike_tweet_path(tweet), class: 'vote button alert', method: :patch, id: tweet.id %></li>
-      <li><%= link_to "Like", like_tweet_path(tweet), class: 'vote button info', method: :patch, id: tweet.id %></li>
-    <li>Likes: <%= tweet.get_likes.size %>
-    <li>DisLikes: <%= tweet.get_dislikes.size %>
-      <br>
-    <li>Latitude: <%= tweet.latitude %></li>
-    <li>Longitude: <%= tweet.longitude %></li>
-      <br>
-    </ul>
-  <ul class="menu simple">
-    <br>
-    <li><h5>Comments:</h5></li>
-      <li> <%= link_to "Comment!", new_comment_path(tweet), class:"button radius warning" %></li><br>
-    <% tweet.comments.each do |comment| %>
-      <li><%= comment.body %></li>
-      <% if comment.user==current_user %>
-        <%= link_to "Edit ", tweet_comment_path(tweet,comment), class:"button primary" %><%= link_to " Delete", destroy_comment_path(tweet ,comment), class:"button alert", method: :delete %>
-      <% end %>
-      <br>
-    <% end %><br>
-  </ul>
+
+<div class="tweetrow">
+  <!-- <div class="large-6 columns"> -->
+    <div class="tweet-panel">
+      <div class="blog-post">
+        <% if @tweet %>
+          <% tweet = @tweet %>
+        <% end %>
+        <div class="tweet-user">
+          <%= link_to tweet.user.username, user_path(tweet.user)%>
+          <% if @user.avatar.url == nil %>
+          <img class="thumbnail" src="http://placehold.it/100x100">
+         <% else %>
+          <%= cl_image_tag (tweet.user.avatar.url), :width => 100, :height => 100, :crop => :fill, :gravity => :face %>
+          <% end %>
+        </div>
+        <div class="tweet-body">
+          <p><%=  tweet.body %></p>
+        </div>
+        <div class="callout">
+          <div class="like-dislike">
+            <ul class="menu simple">
+              <li><%= link_to "Like", like_tweet_path(tweet), class: 'like', method: :patch, id: tweet.id %></li>
+              <li><%= tweet.get_likes.size %>
+              <li><%= link_to "Dislike", dislike_tweet_path(tweet), class: 'dislike', method: :patch, id: tweet.id %></li>
+              <li><%= tweet.get_dislikes.size %>
+            </ul>
+            <ul class="menu simple">
+              <br>
+                <%= button_to "Comment", new_comment_path(tweet), class:"button radius", method: "get" %><br>
+                <% tweet.comments.each do |comment| %>
+                <% if comment == nil %>
+                <% else %>
+                  <div class="comments-body">
+                    <hr>
+                      <p><%= link_to comment.user.username, user_path(comment.user) %>:</p>
+                    <p><%= comment.body %></p> <br>
+                    <% if comment.user == current_user %>
+                     <%= link_to "Edit comment", tweet_comment_path(tweet,comment), class:"" %>
+                     <%= link_to "Delete comment", destroy_comment_path(tweet ,comment), class:"delete-but", method: :delete %>
+                  <% end %>
+                <% end %>
+              </div>
+                <br>
+              <% end %><br>
+              <% if tweet.user == current_user %>
+                <div class="tweet-delete-edit">
+                  <%= link_to "Edit tweet", edit_tweet_path(tweet), class:"" %>
+                  <%= link_to "Delete tweet", destroy_tweet_path(tweet), method: :delete, class:"delete-but" %>
+                </div>
+              <% end %>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<% if tweet.user == current_user %>
-  <%= link_to "Edit", edit_tweet_path(tweet), class:"button primary" %>
-  <%= link_to "Delete", destroy_tweet_path(tweet), method: :delete, class:"button alert" %>
-<% end %>
+
+<br> <br>

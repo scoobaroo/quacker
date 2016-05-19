@@ -12,10 +12,14 @@ class TweetsController < ApplicationController
          render 'users/show'
         else
          @tweets = Tweet.all.order(created_at: :desc).paginate(:page => params[:page], per_page: 10)
-         render :index
+         render 'users/show'
         end
       }
     end
+  end
+  def map
+    @tweets = Tweet.all
+    render :map
   end
 
   def new
@@ -82,7 +86,6 @@ class TweetsController < ApplicationController
   def like
     @tweet = Tweet.find(params[:id])
     @tweet.liked_by current_user
-
     if request.xhr?
       head :ok
     else

@@ -4157,7 +4157,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 
 
  */
-/* line 12, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 12, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .flash {
   background-color: rgba(52, 65, 70, 0.9);
   margin: auto;
@@ -4166,90 +4166,83 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   color: #f1c40f;
 }
 
-/* line 19, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 19, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .top-bar, .top-bar ul {
   background-color: #344146;
   color: #f1c40f;
 }
 
-/* line 24, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 24, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .top-bar a {
   color: #f1c40f;
 }
 
-/* line 28, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 28, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .button {
   background-color: #344146;
 }
 
-/* line 32, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 32, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .button:hover {
   background-color: #f1c40f;
 }
 
-/* line 36, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 36, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .delete-button {
   background-color: #e74c3c;
 }
 
-/* line 40, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 40, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .delete-button:hover {
   background-color: #c0392b;
 }
 
-/* line 44, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
-.sign-up-form {
-  width: 100%;
-  margin-top: 10%;
-}
-
-/* line 49, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 45, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .topbar-section {
   background-color: #344146;
   padding: 0;
 }
 
-/* line 54, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 50, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .top-bar-left {
   background-color: #344146;
 }
 
-/* line 58, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 54, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .duck {
   width: 30px;
   margin: 0px;
 }
 
-/* line 62, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 58, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
+.newDuck {
+  width: 380px;
+  margin-left: 15%;
+  margin-top: -20%;
+}
+
+/* line 63, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
+.quackerTitle {
+  text-align: center;
+}
+
+/* line 66, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .textfield {
   border-color: #344146;
 }
 
-/* line 65, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 69, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .textfield:hover {
   border-color: #f1c40f;
 }
 
-/* line 68, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
-.row {
-  margin-left: 20% auto;
-  margin-right: 20% auto;
-}
-
-/* line 72, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
-.columns {
-  flex: auto;
-  width: 300px;
-  height: 200px;
-}
-
-/* line 78, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 72, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 .photo-tag {
   width: 100px;
   height: 100px;
 }
 
-/* line 82, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/application.scss */
+/* line 76, /Users/abadjoanne/wdi/quacker/app/assets/stylesheets/application.scss */
 html.turbolinks-progress-bar::before {
   background-color: #f1c40f !important;
   height: 7px !important;
@@ -4282,20 +4275,96 @@ html.turbolinks-progress-bar::before {
 .pagination{
   text-align: center;
 }
-
+.tweetCommentTitle{
+  text-align: center;
+}
+.tweetCommentButton{
+  margin-left: 48%;
+  margin-top: 1%;
+}
+.editTweetCommentButton{
+  margin-left: 48%;
+  margin-top: 3%;
+}
+#comment_body{
+  max-width: 26%;
+  margin-left: 37%;
+  margin-bottom: -2%
+}
+#tweet_body{
+  max-width: 26%;
+  margin-left: 37%;
+  margin-bottom: -2%
+}
+.newTweetTitle{
+  text-align: center;
+}
+.postTweetSubmitButton{
+  margin-left: 41%;
+  width: 17%;
+}
+#tweet_full_street_address{
+  margin-left: 37%;
+  margin-bottom: 1%;
+  width: 26%;
+}
+#tweet_title{
+  margin-left: 37%;
+  margin-bottom: 1%;
+  width: 26%;
+}
+#tweet_longitude{
+  margin-left: 37%;
+  margin-bottom: 0%;
+  width: 26%;
+}
+#tweet_latitude{
+  margin-left: 37%;
+  margin-bottom: 1%;
+  width: 26%;
+}
+/*
 .medium-3.column#search-bar{
   margin-left: 70%;
-  margin-top: -341px;
+  margin-top: -185px;
   margin-bottom: 110px;
 }
 .medium-8.column#user-profile-info{
   margin-right: 60%;
-}
+}*/
+
 img{
   margin-top: 20px;
 }
-/* line 5, /Users/aniusiany/Dropbox/wdi/quacker/app/assets/stylesheets/users.scss */
-.sign-in-form {
-  margin: 50px;
-  align-content: center;
+/*.editUserInfo{
+  max-width: 26%;
+  margin-left: 37%;
+}*/
+/*sign in form*/
+.signup-panel {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: 30px;
+}
+.signup-panel i {
+  font-size: 30px;
+  line-height: 50px;
+  color: #999;
+}
+.signup-panel form input, .signup-panel form span {
+  height: 50px;
+}
+.signup-panel .welcome {
+  font-size: 26px;
+  text-align: center;
+  margin-left: 0;
+}
+.signup-panel p {
+  font-size: 13px;
+  font-weight: 200;
+  margin-left: 25%;
+}
+.signup-panel .button {
+  margin-left: 35%;
 }
