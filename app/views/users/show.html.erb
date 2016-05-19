@@ -26,6 +26,9 @@
              </div>
             <div class="row collapse">
                <ul class="button-group even-3">
+                 <% if current_user.id == @user.id %>
+                 <%= link_to "Edit Profile", edit_user_path(@user), class:"button secondary" %><br>
+                 <% end %>
                  <li><%= button_to "Followers #{@user.followers.length}", followers_user_path(@user), class:'button radius', method: 'get' %></li>
                  <li><%= button_to "Following #{@user.following.length}", following_user_path(@user), class:'button radius', method: 'get' %></li>
                  <% if current_user %>
