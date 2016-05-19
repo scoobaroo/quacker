@@ -2,12 +2,12 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require foundation.min.js
-//= require foundation
 //= foundation.toggler.js
 //= foundation.core.js
 //= foundation.util.motion.js
 //= foundation.util.triggers.js
+//= require foundation.min.js
+//= require foundation.js
 //= require turbolinks
 //= require cloudinary
 //= require app
@@ -36,8 +36,6 @@ $(document).on('ready', function(e){
    url: "/tweets",
    success: getTweetsSuccess
   });
-
-  $('#map').foundation('toggle');
 
   function getTweetsSuccess(tweets) {
      this.tweets = tweets;

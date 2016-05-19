@@ -18,8 +18,9 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     if @user != nil
-      @tweets = @user.tweets.paginate(:page => params[:page], per_page: 10)
-      @following = @user.following
+      @tweets = @user.tweets.paginate(:page => params[:page], per_page: 2)
+      @following = @user.following.paginate(:page => params[:page], per_page: 2)
+      @combined = @tweets + @following
     else
       redirect_to root_path
       flash[:notice] = "User Not Found"
