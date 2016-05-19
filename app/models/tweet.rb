@@ -7,5 +7,9 @@ class Tweet < ActiveRecord::Base
   validates :body, length: { maximum: 200 }
   acts_as_votable
 
+  include SimpleHashtag::Hashtaggable
+  hashtaggable_attribute :body
+
   self.per_page = 2
+
 end
