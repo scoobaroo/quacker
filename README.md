@@ -1,7 +1,18 @@
 # Quacker
-A microblogging app that includes geolocation of user quacks.
+A microblogging app that lets you share your thoughts and ideas with other users.  Quacker is about discovering interesting people and following their daily broadcast.  Quacker provides a visual map which allows you to see where users are most active.
+
+https://github.com/sobolewskaanna/quacker
+
 
 ![Alt text](app/assets/images/LandingPage1.png)
+
+
+#Contributors
+* Anna Sobolewska https://github.com/sobolewskaanna
+* Eric Han https://github.com/scoobaroo
+* Joanne Abad https://github.com/jabad28
+* Ilter Ates https://github.com/ilterates
+
 
 ## TECHNOLOGIES USED
 * Ruby On Rails
@@ -25,14 +36,20 @@ A microblogging app that includes geolocation of user quacks.
 * A user will have an option to like a quack or dislike a quack.
 * A user can see a map that will display quacks that happened around the world.
 
+
 ![Alt text](app/assets/images/CardsSpecialFeatures.png)
 
+
+## WIREFRAMES
+![Alt text](app/assets/images/quackerWireframe.png)
 
 ## SPECIAL FEATURES
 * GOOGLE Maps API (Geolocation)
 * Cloudinary API (Photo Upload)
 
+
 ![Alt text](app/assets/images/tweetmap.png)
+
 
 ## PLANNED FEATURES
 * A geolocation will be added to a user's quack and be taken to a different view where they will see a map of the most tweeted location.
