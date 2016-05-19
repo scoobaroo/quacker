@@ -1,7 +1,7 @@
 # Quacker
 A microblogging app that includes geolocation of user quacks.
 
-![alt tag](http://url/to/LandingPage1.png)
+![alt tag](/images/LandingPage1.png)
 
 ## TECHNOLOGIES USED
 * Ruby On Rails
@@ -25,13 +25,13 @@ A microblogging app that includes geolocation of user quacks.
 * A user will have an option to like a quack or dislike a quack.
 * A user can see a map that will display quacks that happened around the world.
 
-![alt tag](http://url/to/CardsSpecialFeatures.png)
+![alt tag](/images/CardsSpecialFeatures.png)
 
 ## SPECIAL FEATURES
 * GOOGLE Maps API (Geolocation)
 * Cloudinary API (Photo Upload)
 
-![alt tag](http://url/to/tweetmap.png)
+![alt tag](/images/tweetmap.png)
 
 ## PLANNED FEATURES
 * A geolocation will be added to a user's quack and be taken to a different view where they will see a map of the most tweeted location.
