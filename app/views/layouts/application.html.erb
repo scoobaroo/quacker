@@ -14,7 +14,7 @@
           <li><%= link_to "Sign In", login_path %></li>
           <li><%= link_to "About Us", about_us_path %></li>
         <% else %>
-          <li class="menu-text"><%= link_to image_tag("noun_153623_cc.svg", class:"duck"), current_user %></li>
+          <li class="menu-text"><%= link_to image_tag("noun_153623_cc.svg", class:"duck"), root_path %></li>
           <li><%= link_to "Profile", user_path(current_user) %></li>
           <li><%= link_to "Logout", logout_path(current_user) %></li>
           <li><strong><%= link_to "Tweet Map", tweets_map_path, method: 'get'%></strong></li>
