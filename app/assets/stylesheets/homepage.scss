@@ -17,6 +17,10 @@
   height: 500px;
   object-fit: cover;
 }
+.team-image {
+  border-radius: 50%;
+
+}
 .profile-card {
   padding: 1rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -137,6 +141,9 @@
   content: "";
   padding: 0 0.4rem 0 0.8rem;
 }
+.row.path-item{
+  margin-top: 50px;
+}
 .path-container{
   margin-top: 50px;
   margin-bottom: 70px;
@@ -159,36 +166,37 @@
       font-weight: bold;
       font-size: emCalc(14px);
     }
-    .circle{
-      background-color: #ccc;
-      background-size: 156px 156px;
-      border-radius: 50%;
-      width: 156px;
-      height: 156px;
-      position: relative;
-      margin-bottom: 180px;
-      z-index:2;
-      &.circle-left{
-        left: 510px;
-      }
-      &.circle-right{
-        right: -510px;
-      }
-    }
+    // .circle{
+    //   background-color: #ccc;
+    //   background-size: 156px 156px;
+    //   border-radius: 50%;
+    //   width: 156px;
+    //   height: 156px;
+    //   position: relative;
+    //   margin-bottom: 180px;
+    //   z-index:2;
+    //   &.circle-left{
+    //     left: 510px;
+    //   }
+    //   &.circle-right{
+    //     right: -510px;
+    //   }
+    // }
   }
   .line {
     background: #ddd;
     width: 2px;
     bottom: 0;
     position: absolute;
-    top: 160px;
+    top: 300px;
     left: 50%;
     z-index: 0;
-    height: 1164px;
+    height: 1500px;
   }
 }
 .developers-title{
   font-family: 'Bangers', cursive;
   font-size: 80px;
   color: rgba(52,65,70,1);
+  margin-left: 20%;
 }
