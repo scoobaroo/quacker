@@ -1,6 +1,7 @@
 
   # Geocoding options
   Geocoder.configure(:lookup => :bing, :api_key => "Arc2Uh3xUss51qpiIOI-vl-pr-i-TxyTDRoiLCPqWix17uT4kvp40QYo6mSnft-O")
+
   # timeout: 3,                 # geocoding service timeout (secs)
   # lookup: :google,            # name of geocoding service (symbol)
   # language: :en,              # ISO-639 language code
