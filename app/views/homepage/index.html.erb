@@ -4,15 +4,21 @@
     <%= image_tag("noun_394466_cc.svg", class: "new-duck-image") %>
   </div>
   <div class="medium-3 medium-pull-2 columns">
-    <%= form_for @user, url: users_path do |f| %>
-      <%= f.label :username %>
-      <%= f.text_field :username , placeholder:"Username", class: "textfield" %><br>
-      <%= f.label :email %>
-      <%= f.text_field :email ,placeholder: "Email", class: "textfield" %><br>
-      <%= f.label :password %>
-      <%= f.password_field :password , placeholder: "Password", class: "textfield" %><br>
-      <%= f.submit "Create Account", class:"button radius", id:"signup"%>
-      <p> Already have an account? <%= link_to "Sign In", login_path %></p>
+    <% if current_user %>
+      <h1>Hi <%= current_user.username %>!</h1>
+      <p>We are glad you could stop by!</p><br>
+      <p>Explore what is going on around you by checking out all the recent <%= link_to "hashtags", hashtags_path %>.</p>
+    <% else %>
+      <%= form_for @user, url: users_path do |f| %>
+        <%= f.label :username %>
+        <%= f.text_field :username , placeholder:"Username", class: "textfield" %><br>
+        <%= f.label :email %>
+        <%= f.text_field :email ,placeholder: "Email", class: "textfield" %><br>
+        <%= f.label :password %>
+        <%= f.password_field :password , placeholder: "Password", class: "textfield" %><br>
+        <%= f.submit "Create Account", class:"button radius", id:"signup"%>
+        <p> Already have an account? <%= link_to "Sign In", login_path %></p>
+      <% end %>
     <% end %>
   </div>
 </div>
