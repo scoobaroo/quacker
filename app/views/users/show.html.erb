@@ -20,10 +20,10 @@
       <% end %>
       <div class="followers-following">
         <div class="followers">
-          <strong>Followers</strong><br><%= link_to @user.followers.length, followers_user_path(@user), method: 'get' %>
+          <strong>Followers</strong><br><%= link_to ((@user.followers.length) -1), followers_user_path(@user), method: 'get' %>
         </div>
         <div class="following">
-          <strong>Following</strong><br><%= link_to @user.following.length, following_user_path(@user), method: 'get' %><br>
+          <strong>Following</strong><br><%= link_to ((@user.following.length) -1), following_user_path(@user), method: 'get' %><br>
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@
       <% relationship = Relationship.find_by(follower_id: current_user.id, followed_id: @user.id) %>
     <% end %>
 
-    <% if relationship %>
+    <% if relationship && current_user != @user %>
       <%= form_tag(relationship_path(relationship.id), method: :delete) do %>
         <%= submit_tag "Unfollow", class:"button radius" %>
       <% end %>

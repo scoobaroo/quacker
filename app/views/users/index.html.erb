@@ -11,7 +11,7 @@
       <% relationship = Relationship.find_by(follower_id: current_user.id, followed_id: user.id) %>
     <% end %>
 
-    <% if relationship %>
+    <% if relationship && current_user != @user %>
       <%= form_tag(relationship_path(relationship.id), method: :delete) do %>
         <%= submit_tag "Unfollow", class:"button radius" %>
       <% end %>
