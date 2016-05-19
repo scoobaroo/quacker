@@ -7,7 +7,10 @@
 .medium-8.column#user-profile-info{
   margin-right: 60%;
 }*/
-
+#edit-user-info {
+  margin-top: 40px;
+  margin-left: 35%;
+}
 
 /********************sign in form style***************************/
 .signup-panel {
