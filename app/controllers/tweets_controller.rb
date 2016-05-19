@@ -8,12 +8,10 @@ class TweetsController < ApplicationController
         if current_user
          @following = current_user.following
          @user = current_user
-         @tweets = Tweet.all.order(created_at: :desc)
-         @tweets.paginate(:page => params[:page], per_page: 10)
+         @tweets = Tweet.all.order(created_at: :desc).paginate(:page => params[:page], per_page: 10)
          render 'users/show'
         else
-         @tweets = Tweet.all.order(created_at: :desc)
-         @tweets.paginate(:page => params[:page], per_page: 10)
+         @tweets = Tweet.all.order(created_at: :desc).paginate(:page => params[:page], per_page: 10)
          render :index
         end
       }

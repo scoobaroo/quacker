@@ -44,16 +44,5 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following.include?(other_user)
   end
-  def liked?(tweet)
-    self.liked? tweet
-  end
-  #
-  # def slug
-  #   username.downcase.gsub(" ", "-")
-  # # end
-  #
-  # def to_param
-  #   "#{slug}"
-  # end
-
+  acts_as_votable
 end
