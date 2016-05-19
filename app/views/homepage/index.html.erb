@@ -1,19 +1,19 @@
 <div class="row sign-up-form" id="homepage-content">
   <div class="medium-3 medium-push-1 columns" id="new-duck">
     <div id="landing-page-name">Quacker.</div>
-    <%=image_tag("noun_394466_cc.svg", class: "new-duck-image")%>
+    <%= image_tag("noun_394466_cc.svg", class: "new-duck-image") %>
   </div>
   <div class="medium-3 medium-pull-2 columns">
-      <%= form_for @user, url: users_path do |f| %>
-        <%= f.label :username %>
-        <%= f.text_field :username , placeholder:"Username", class: "textfield" %> <br>
-        <%= f.label :email %>
-        <%= f.text_field :email ,placeholder: "Email", class: "textfield"%> <br>
-        <%= f.label :password %>
-        <%= f.password_field :password , placeholder: "Password", class: "textfield" %> <br>
-        <%= f.submit "Create Account", class:"button radius", id:"signup"%>
-        <p> Already have an account? <%= link_to "Sign In", login_path %></p>
-      <% end %>
+    <%= form_for @user, url: users_path do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username , placeholder:"Username", class: "textfield" %><br>
+      <%= f.label :email %>
+      <%= f.text_field :email ,placeholder: "Email", class: "textfield" %><br>
+      <%= f.label :password %>
+      <%= f.password_field :password , placeholder: "Password", class: "textfield" %><br>
+      <%= f.submit "Create Account", class:"button radius", id:"signup"%>
+      <p> Already have an account? <%= link_to "Sign In", login_path %></p>
+    <% end %>
   </div>
 </div>
 

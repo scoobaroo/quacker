@@ -18,16 +18,14 @@
       <ul class="menu">
         <% if !current_user %>
           <li class="menu-text"><%= link_to image_tag("noun_153623_cc.svg", class:"duck"), root_path %></li>
-          <li class="sign-in-link"><%= link_to "Sign In", login_path %></li>
-          <li class="about-us-link"> <%= link_to "About Us", about_us_path %></li>
+          <li><%= link_to "Sign In", login_path %></li>
+          <li><%= link_to "About Us", about_us_path %></li>
         <% else %>
           <li class="menu-text"><%= link_to image_tag("noun_153623_cc.svg", class:"duck"), current_user %></li>
-          <li class="profile-link"><%=link_to "Profile", user_path(current_user) %></li>
-          <li class="logout-link"><%=link_to "Logout", logout_path(current_user)%></li>
+          <li><%= link_to "Profile", user_path(current_user) %></li>
+          <li><%= link_to "Logout", logout_path(current_user) %></li>
+          <li><strong><%= link_to "Tweet Map", tweets_map_path %></strong></li>
         <% end %>
-        <li class = "menu-text">
-          <strong><%= link_to "Tweet Map", tweets_map_path %></strong>
-        </li>
       </ul>
     </div>
       <!-- <div class = "top-bar-right">

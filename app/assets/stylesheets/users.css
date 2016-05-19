@@ -70,3 +70,16 @@ span.prefix, label.prefix {
   margin-left: 42%;
 }
 /********************end sign in form style***************************/
+.profile-card .button-group .button {
+  margin-top: 20px;
+}
+
+.small-12.large-4.columns{
+  max-height: 128px;
+}
+
+@media only screen and (max-width: 767px) {
+  .button {
+    display: inline-block;
+  }
+}
