@@ -9,13 +9,19 @@ class TweetsController < ApplicationController
          @following = current_user.following
          @user = current_user
          @tweets = Tweet.all.order(created_at: :desc)
+         @tweets.paginate(:page => params[:page], per_page: 2)
          render 'users/show'
         else
          @tweets = Tweet.all.order(created_at: :desc)
+         @tweets.paginate(:page => params[:page], per_page: 10)
          render :index
         end
       }
     end
+  end
+  def map
+    @tweets = Tweet.all
+    render :map
   end
 
   def new
@@ -32,7 +38,12 @@ class TweetsController < ApplicationController
       @tweet.save
     end
     @user.tweets << @tweet
-    redirect_to user_path(@user)
+    if @tweet.save
+      redirect_to user_path(@user)
+    else
+      redirect_to new_tweet_path
+      flash[:notice] = @tweet.errors.full_messages
+    end
   end
 
   def show
@@ -44,13 +55,14 @@ class TweetsController < ApplicationController
   end
 
   def update
+    @user = current_user
     @tweet = Tweet.find(params[:id])
     if current_user == @tweet.user
       @tweet.update(tweet_params)
     else
-      flash[:notice]="Not your tweet!"
+      flash[:notice]=@tweet.errors.full_messages
     end
-    redirect_to tweets_path
+    redirect_to @tweet
   end
 
   def edit
@@ -58,7 +70,7 @@ class TweetsController < ApplicationController
     if current_user == @tweet.user
       render :edit
     else
-      flash[:notice]="Not your tweet!"
+      flash[:notice]=@tweet.errors.full_messages
       redirect_to tweets_path
     end
   end
@@ -68,15 +80,14 @@ class TweetsController < ApplicationController
     if current_user == @tweet.user
       @tweet.destroy
     else
-      flash[:notice]= "Not Your tweet!"
+      flash[:notice]= @tweet.error.full_messages
     end
-    redirect_to tweets_path
+    redirect_to current_user
   end
 
   def like
     @tweet = Tweet.find(params[:id])
     @tweet.liked_by current_user
-
     if request.xhr?
       head :ok
     else

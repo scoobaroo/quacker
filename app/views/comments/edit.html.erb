@@ -1,11 +1,11 @@
 <div class="col-md-4 col-md-offset-4">
-  <h2 class="tweetCommentTitle">Edit Comment</h2>
+  <h3 class="tweetCommentTitle">Edit Comment</h3>
   <div class="form-group">
     <%= form_for [@tweet,@comment] do |f| %>
       <div>
         <%= f.text_area :body, placeholder: "Comment Body", size:"60x10", class:"form-control" %>
       </div>
-      <%= f.submit "Submit", formaction: comment_update_path(@tweet,@comment), class:"btn btn-primary editTweetCommentButton" %>
+      <%= f.submit "Submit", formaction: comment_update_path(@tweet,@comment), class:"button primary editTweetCommentButton" %>
     <% end %>
   </div>
 </div>

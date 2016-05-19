@@ -2,12 +2,12 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require foundation.min.js
-//= require foundation
 //= foundation.toggler.js
 //= foundation.core.js
 //= foundation.util.motion.js
 //= foundation.util.triggers.js
+//= require foundation.min.js
+//= require foundation.js
 //= require turbolinks
 //= require cloudinary
 //= require app
@@ -17,7 +17,13 @@
 
 Turbolinks.enableProgressBar();
 
+
 $(document).on('ready', function(e){
+
+  $("#tweet-owner-selector").on("click", function(){
+    $(".tweet-delete-edit").css("display", "block");
+  });
+
   $(window).mouseover(function() {
     $(".flash").delay(2000).fadeOut(300);
   });
@@ -25,13 +31,12 @@ $(document).on('ready', function(e){
       $('.duck-sound')[0].currentTime = 0;
       return $('.duck-sound')[0].play();
   });
-
   $.ajax({
    method: "GET",
    url: "/tweets",
    success: getTweetsSuccess
   });
-  $('#map').foundation('toggle');
+
   function getTweetsSuccess(tweets) {
      this.tweets = tweets;
      var myLatLng = {lat: 37.78, lng: -122.44};
@@ -51,10 +56,10 @@ $(document).on('ready', function(e){
          });
 
          marker.addListener('click', function() {
-         infowindow.setContent("<h3><a>" +"Title:"+ tweet.title+ "<br>"+ "Body:"+tweet.body+"</a></h3>"+tweet.created_at);
+         infowindow.setContent("<h5><a>" +"Title:"+ tweet.title+ "<br>"+ "Body:"+tweet.body+"</a></h5>"+tweet.created_at);
            infowindow.open(map, marker);
          });
        }
      });
   }
-})
+});

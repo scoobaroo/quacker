@@ -16,13 +16,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user = User.friendly.find(params[:id])
     if @user != nil
-      @tweets = @user.tweets.paginate(:page => params[:page], per_page: 10)
-      @following = @user.following
+      @tweets = @user.tweets.paginate(:page => params[:page], per_page: 2)
+      @following = @user.following.paginate(:page => params[:page], per_page: 2)
     else
       redirect_to root_path
-      flash[:notice] = "user not found"
+      flash[:notice] = "User Not Found"
     end
   end
 
@@ -31,14 +31,16 @@ class UsersController < ApplicationController
     if @user.save
       @user.following << @user
       login(@user)
+      flash[:notice]="Account Succesfully Created!"
       redirect_to @user
     else
-      render :root
+      flash[:notice]=@user.errors.full_messages
+      redirect_to '/'
     end
   end
 
   def edit
-    @user = User.find_by_id(params[:id])
+    @user = User.friendly.find(params[:id])
     unless current_user.id == @user.id
       flash[:notice] = "You may not edit other user accounts"
       redirect_to "/"
@@ -46,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_id(params[:id])
+    @user = User.friendly.find(params[:id])
     unless user_params != nil
       Cloudinary::Uploader.upload(user_params)
     end
@@ -55,13 +57,13 @@ class UsersController < ApplicationController
       flash[:notice] = "Profile updated."
       redirect_to @user
     else
-      flash[:notice] = "What do you think you are doing? Do you think this is a game?"
+      flash[:notice] = @user.errors.full_messages
       redirect_to user_path
     end
   end
 
   def destroy
-    @user = User.find_by_id(params[:id])
+    @user = User.friendly.find(params[:id])
     if current_user.id == @user.id
     @user.destroy
     redirect_to "/"
@@ -73,7 +75,7 @@ class UsersController < ApplicationController
 
   def following
     @title = "Following"
-    @user  = User.find(params[:id])
+    @user  = User.friendly.find(params[:id])
     @followers = @user.followers
     @users = @user.following
     render 'show_follow'
@@ -81,9 +83,9 @@ class UsersController < ApplicationController
 
   def followers
     @title = "Followers"
-    @user  = User.find(params[:id])
-    @users = @user.followers
-    render 'show_follow'
+    @user  = User.friendly.find(params[:id])
+    @followers = @user.followers
+    render 'show_followers'
   end
 
   private

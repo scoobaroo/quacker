@@ -4,19 +4,14 @@
       <h1><%= @user.username %></h1>
     </section>
     <section class="stats">
-      <% if @users.any? %>
+      <% if @users %>
         <div class="user_avatars">
           <p>You are following <%= @users.count %> users: </p>
           <% @users.each do |user| %>
-            <%= link_to user.username, user %>
+            <strong><%= link_to user.username, user %></strong>
             Tweet count: <%= user.tweets.count %> </br>
           <% end %>
-          <% if @followers.any? %>
-            <p>You have <%= @followers.count %> Followers: </p>
-            <% @followers.each do |f| %>
-              <%= link_to f.username, f %>
-            <% end %>
-          <% end %>
+          <br>
         </div>
       <% end %>
     </section>

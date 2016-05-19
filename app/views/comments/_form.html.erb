@@ -1,4 +1,4 @@
 <%= form_for [@tweet,@comment] do |f| %>
   <div> <%= f.text_area :body, placeholder: "Body", size: "60x12" %> </div>
-  <div> <%= f.submit "Submit" %> </div>
+  <div> <%= f.submit "Submit",class: "button radius postCommentSubmitButton" %> </div>
 <% end %>

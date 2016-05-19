@@ -5,6 +5,12 @@
  *= require_self
  *= require_tree .
  */
+#map{
+  color: black;
+  // width: 80%auto;
+}
+
+@import 'foundation-icons';
 
  $menu-color: rgba(52,65,70,1);
  $duck-color: rgba(241, 196, 15,1);
@@ -40,39 +46,25 @@
    background-color: #c0392b;
  }
 
- .sign-up-form {
-   width: 100%;
-   margin-top: 10%;
- }
 
 .topbar-section {
   background-color: rgba(52,65,70,1);
   padding: 0;
 }
 
-.top-bar-left{
-  background-color: rgba(52,65,70,1);
-}
-
 .duck {
   width: 30px;
   margin: 0px;
+}
+
+.quackerTitle{
+  text-align: center;
 }
 .textfield{
   border-color: $menu-color;
 }
 .textfield:hover{
   border-color: $duck-color;
-}
-.row {
-  margin-left: 20%auto;
-  margin-right: 20%auto;
-}
-.columns {
-  flex: auto;
-  width: 300px;
-  height: 200px;
-
 }
 .photo-tag {
   width: 100px;

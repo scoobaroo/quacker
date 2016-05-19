@@ -1,13 +1,16 @@
 class User < ActiveRecord::Base
-  # extend FriendlyId
-  # friendly_id :username, use: :slugged
+  extend FriendlyId
+  friendly_id :username
 
   has_secure_password
-
   mount_uploader :avatar, AvatarUploader
 
-  has_many :tweets
-  has_many :comments
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: (/\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/)
+  validates :password, presence: true, length: { in: 6..20 }, on: :create
+
+  has_many :tweets,dependent:   :nullify
+  has_many :comments,dependent:   :nullify
   has_many :active_relationships, class_name:  "Relationship",
                                 foreign_key: "follower_id",
                                 dependent:   :destroy
@@ -31,7 +34,6 @@ class User < ActiveRecord::Base
     end
   end
 
-
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
   end
@@ -45,13 +47,13 @@ class User < ActiveRecord::Base
   def liked?(tweet)
     self.liked? tweet
   end
-
-  def slug
-    username.downcase.gsub(" ", "-")
-  end
-
-  def to_param
-    "#{id}-#{slug}"
-  end
+  #
+  # def slug
+  #   username.downcase.gsub(" ", "-")
+  # # end
+  #
+  # def to_param
+  #   "#{slug}"
+  # end
 
 end
