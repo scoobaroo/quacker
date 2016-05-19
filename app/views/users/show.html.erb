@@ -62,7 +62,7 @@
   <div class = "top-bar-left">
     <ul class="menu">
       <%= form_tag users_path, {method: 'get', class:'form-inline'} do %>
-      <%= text_field_tag :search, params[:search], placeholder:"Find other users", class: "textfield" %>
+      <%= text_field_tag :search, params[:search], placeholder:"Find other users", class: "textfield" %><br>
       <%= submit_tag "Search", class:"button radius", class: "button warning" %>
       <% end %>
       Or browse current <strong><%= link_to "users", users_path %></strong>

@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160518195751) do
 
   # These are extensions that must be enabled in order to support this database
@@ -27,7 +26,6 @@ ActiveRecord::Schema.define(version: 20160518195751) do
 
   add_index "comments", ["tweet_id"], name: "index_comments_on_tweet_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
-
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -92,7 +90,6 @@ ActiveRecord::Schema.define(version: 20160518195751) do
     t.datetime "updated_at",      null: false
     t.string   "avatar"
     t.string   "slug"
-
   end
 
   add_index "users", ["avatar"], name: "index_users_on_avatar", using: :btree
