@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20160518195751) do
     t.datetime "updated_at",      null: false
     t.string   "avatar"
     t.string   "slug"
+
   end
 
   add_index "users", ["avatar"], name: "index_users_on_avatar", using: :btree

@@ -82,7 +82,7 @@ class TweetsController < ApplicationController
     else
       flash[:notice]= @tweet.error.full_messages
     end
-    redirect_to tweets_path
+    redirect_to current_user
   end
 
   def like
