@@ -40,7 +40,7 @@ $(document).on('ready', function(e){
   function getTweetsSuccess(tweets) {
      this.tweets = tweets;
      var myLatLng = {lat: 37.78, lng: -122.44};
-     var map = new google.maps.Map(document.getElementById('map'), {
+     var map = new google.maps.Map(document.getElementById("map"), {
        zoom:2,
        center: myLatLng
      });
@@ -56,7 +56,7 @@ $(document).on('ready', function(e){
          });
 
          marker.addListener('click', function() {
-         infowindow.setContent("<h5><a>" +"Title:"+ tweet.title+ "<br>"+ "Body:"+tweet.body+"</a></h5>"+tweet.created_at);
+         infowindow.setContent("<h5><a>" + "Body:"+tweet.body+"</a></h5>"+tweet.created_at);
            infowindow.open(map, marker);
          });
        }

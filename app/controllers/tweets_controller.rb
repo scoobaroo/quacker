@@ -8,20 +8,31 @@ class TweetsController < ApplicationController
         if current_user
          @following = current_user.following
          @user = current_user
-         @tweets = Tweet.all.order(created_at: :desc)
-         @tweets.paginate(:page => params[:page], per_page: 2)
+         @tweets = Tweet.all.order(created_at: :desc).paginate(:page => params[:page], per_page: 10)
          render 'users/show'
         else
-         @tweets = Tweet.all.order(created_at: :desc)
-         @tweets.paginate(:page => params[:page], per_page: 10)
-         render :index
+         @tweets = Tweet.all.order(created_at: :desc).paginate(:page => params[:page], per_page: 10)
+         render 'users/show'
         end
       }
     end
   end
   def map
-    @tweets = Tweet.all
-    render :map
+    @tweets = Tweet.all.order(created_at: :desc)
+    respond_to do |format|
+      format.json { render :json=> @tweets }
+      format.html {
+        if current_user
+         @following = current_user.following
+         @user = current_user
+         @tweets = Tweet.all.order(created_at: :desc).paginate(:page => params[:page], per_page: 10)
+         render :map
+        else
+         @tweets = Tweet.all.order(created_at: :desc).paginate(:page => params[:page], per_page: 10)
+         render :map
+        end
+      }
+    end
   end
 
   def new
@@ -33,10 +44,12 @@ class TweetsController < ApplicationController
     @tweet = Tweet.create(tweet_params)
     @user = current_user
     if result = request.location
-      @tweet.longitude=result.longitude
-      @tweet.latitude=result.latitude
-      @tweet.save
+      if result.longitude && result.latitude
+        @tweet.longitude=result.longitude
+        @tweet.latitude=result.latitude
+      end
     end
+    @tweet.save
     @user.tweets << @tweet
     if @tweet.save
       redirect_to user_path(@user)

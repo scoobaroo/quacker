@@ -12,10 +12,9 @@
           </div>
           <div class="small-12 large-8 columns">
             <h6>User: <strong><%= link_to tweet.user.username, user_path(tweet.user)%></h6>
-            <p><%=  tweet.body %></p>
+            <p><%= link_to tweet.body, tweet %></p>
           </div>
         </div>
-
         <div class="row">
           <div class="small-12 large-6 columns">
             <% if tweet.user == current_user %>
