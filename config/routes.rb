@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get 'users/search/:id', to: "users#search", as: "user_search"
 
-  get "/tweets", to: "tweets#index", as: "tweets"
+  get "/tweets/" => redirect('/tweets/map')
   get "/tweets/map", to: "tweets#map", as: "tweets_map"
   get "/tweets/new", to: "tweets#new", as: "new_tweet"
   get "/tweets/:id", to: "tweets#show", as: "tweet"
