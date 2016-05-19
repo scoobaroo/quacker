@@ -5,8 +5,8 @@
     </section>
     <section class="stats">
       <div class="user_avatars">
-        <% if @followers.any? %>
-          <p>You have <%= @followers.count %> Followers: </p>
+        <% if @followers.count > 1 %>
+          <p>You have <%= ((@followers.count) -1) %> Followers: </p>
           <% @followers.each do |f| %>
             <strong><%= link_to f.username, f %></strong>
             Tweet count: <%= f.tweets.count %> </br>
