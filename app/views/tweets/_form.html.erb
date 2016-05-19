@@ -1,8 +1,8 @@
 <%= form_for @tweet do |f| %>
-  <div> <%= f.text_field :title, placeholder: "Title" %></div>
+  <!-- <div> <%= f.text_field :title, placeholder: "Title" %></div> -->
   <div> <%= f.text_field :full_street_address, placeholder: "Address"%> </div>
   <div> <%= f.text_area :body, placeholder: "Body", size: "60x12" %> </div><br>
-  <div> <%= f.number_field :longitude, :step => "0.01" ,placeholder: "Longitude" %> </div>
-  <div> <%= f.number_field :latitude,:step=>"0.01", placeholder: "Latitude" %> </div>
+  <!-- <div> <%= f.number_field :longitude, :step => "0.01" ,placeholder: "Longitude" %> </div> -->
+  <!-- <div> <%= f.number_field :latitude,:step=>"0.01", placeholder: "Latitude" %> </div> -->
   <div> <%= f.submit "Submit", class: "button radius postTweetSubmitButton" %> </div>
 <% end %>
